@@ -21,7 +21,7 @@ import de.makiart.phosphatapp.logic.PECalc;
 public class PhosphatActivity extends Activity {
 
 	private PECalc logic;
-	private int idCount = 1;
+	private int idCount = 0;
 	private LinearLayout mealList;
 	
 	@Override
@@ -45,7 +45,6 @@ public class PhosphatActivity extends Activity {
 	 */
 	public void addMeal(View view) {
 		mealList.addView(createMealListItem(logic.addFood(idCount)));
-		idCount++;	// Zähler für die id benennung der Listitems erhöhen
 		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));
 	}
 	
@@ -54,7 +53,7 @@ public class PhosphatActivity extends Activity {
 	 * @param view
 	 */
 	public void removeMeal(View view) {
-		logic.removeFood(view.getId());
+		logic.removeFood(((View) view.getParent()).getId());
 		mealList.removeView((View) view.getParent());
 		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));
 	}
@@ -79,7 +78,7 @@ public class PhosphatActivity extends Activity {
 		mealListItem.addView(nameTxt);
 		mealListItem.addView(peTxt);
 		mealListItem.setId(idCount);
-		
+		idCount++;
 		return mealListItem;
 	}
 }

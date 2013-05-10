@@ -19,7 +19,8 @@ public class PECalc {
 	public Food addFood(int id) {
 		Log.i("PECalc.addFood()", "add food");
 		
-		Food selected = data.getRandomFood();
+		Food prototype = data.getRandomFood();
+		Food selected = new Food(prototype.getName(), prototype.getPeValue(), prototype.getPortion());
 		selected.setId(id);
 		meal.add(selected);
 		calculatePe();
@@ -28,14 +29,17 @@ public class PECalc {
 	}
 	
 	public void removeFood(int id) {
-		Log.i("PECalc.addFood()", "remove food");
+		Log.i("PECalc.removeFood()", "remove food with id: " + id);
 		
-		for (Food food : meal) {
+		List<Food> tmp = new ArrayList<Food>();
+		tmp.addAll(meal);
+		for (Food food : tmp) {
 			if (food.getId() == id) {
 				meal.remove(food);
-				calculatePe();
+				break;
 			}
 		}
+		calculatePe();
 	}
 	
 	private void calculatePe() {
