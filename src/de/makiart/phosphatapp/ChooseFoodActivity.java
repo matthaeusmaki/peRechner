@@ -4,6 +4,12 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
 
+/**
+ * Ansicht für die Auswahl der Speise
+ * @author mat
+ *
+ */
+
 public class ChooseFoodActivity extends Activity {
 
 	@Override

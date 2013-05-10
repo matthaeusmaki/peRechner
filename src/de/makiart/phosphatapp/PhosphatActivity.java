@@ -11,6 +11,13 @@ import android.widget.TextView;
 import de.makiart.phosphatapp.logic.Food;
 import de.makiart.phosphatapp.logic.PECalc;
 
+/**
+ * Ansicht für Hinzufügen einer Speise und Anzeigen ob bereits etwas hinzugefügt wurde.
+ * Und das Ergebnis der Berechnung (Phosphat Einheit)
+ * @author mat
+ *
+ */
+
 public class PhosphatActivity extends Activity {
 
 	private PECalc logic;
