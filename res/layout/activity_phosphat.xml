@@ -1,0 +1,44 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PhosphatActivity"
+    android:background="#dddddd" >
+
+    <Button
+        android:id="@+id/addFoodBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="addMeal"
+        android:text="@string/buttonAddMeal" />
+    
+	<ScrollView 
+	    android:layout_width="fill_parent" 
+        android:layout_below="@+id/addFoodBtnId"
+        android:layout_centerHorizontal="true"
+	    android:layout_height="wrap_content"> 
+
+	    <LinearLayout
+	        android:id="@+id/mealListId"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="5dp"
+	        android:orientation="vertical" >
+
+	    </LinearLayout>
+    </ScrollView>
+
+	<TextView
+	    android:id="@+id/peTextId"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:background="#dddddd"
+	    android:height="50dp"
+	    android:text="@string/peResult"
+	    android:textAppearance="?android:attr/textAppearanceLarge" />
+
+</RelativeLayout>
