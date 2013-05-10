@@ -27,9 +27,11 @@ public class PhosphatActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_phosphat);
-		logic = new PECalc();
-		mealList = (LinearLayout) findViewById(R.id.mealListId);
+		if (logic == null) {
+			setContentView(R.layout.activity_phosphat);
+			logic = new PECalc();
+			mealList = (LinearLayout) findViewById(R.id.mealListId);
+		}
 	}
 
 	@Override
@@ -44,6 +46,10 @@ public class PhosphatActivity extends Activity {
 	 * @param view
 	 */
 	public void addMeal(View view) {
+//		Intent myIntent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
+//		myIntent.putExtra("key", value); //Optional parameters
+//		PhosphatActivity.this.startActivity(myIntent);
+		
 		mealList.addView(createMealListItem(logic.addFood(idCount)));
 		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));
 	}

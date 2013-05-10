@@ -16,6 +16,7 @@ public class FoodData {
 	
 	private void generateFoodData() {
 		// TODO: Daten sollten nicht Hardcodiert werden
+		// vielleicht als xml-file
 		// diese Speisen stammen vom Phosphatmanagement Prospekt Seite 6
 		this.selectableFood.add(new Food("Wiener Würstchen", 3, 150));
 		this.selectableFood.add(new Food("Kartoffelsalat", 1, 200));
@@ -28,6 +29,8 @@ public class FoodData {
 	public Food getRandomFood() {
 		int r = (int) (Math.random() * selectableFood.size());
 		Log.i("FoodData.getRandromFood()", String.valueOf(r));
-		return selectableFood.get(r);
+		
+		Food prototype = selectableFood.get(r);
+		return new Food(prototype.getName(), prototype.getPeValue(), prototype.getPortion());
 	}
 }

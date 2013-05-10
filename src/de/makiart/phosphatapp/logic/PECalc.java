@@ -19,8 +19,7 @@ public class PECalc {
 	public Food addFood(int id) {
 		Log.i("PECalc.addFood()", "add food");
 		
-		Food prototype = data.getRandomFood();
-		Food selected = new Food(prototype.getName(), prototype.getPeValue(), prototype.getPortion());
+		Food selected = data.getRandomFood();
 		selected.setId(id);
 		meal.add(selected);
 		calculatePe();
