@@ -1,6 +1,7 @@
 package de.makiart.phosphatapp;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -45,8 +46,8 @@ public class PhosphatActivity extends Activity {
 	 */
 	public void addMeal(View view) {
 //		Intent myIntent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
-//		myIntent.putExtra("key", value); //Optional parameters
 //		PhosphatActivity.this.startActivity(myIntent);
+//		finish();
 		
 		mealList.addView(createMealListItem(logic.addFood(idCount)));
 		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));

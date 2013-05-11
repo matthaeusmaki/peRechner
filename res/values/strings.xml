@@ -7,7 +7,10 @@
     
     <string name="buttonAddMeal">Essen hinzufügen</string>
     <string name="buttonRemoveMeal">X</string>
-
+    <string name="buttonRemoveAll">X</string>
+    <string name="buttonCancel">Abbrechen</string>
+    <string name="buttonSave">Speichern</string>
+    
     <string name="peResult">PE:</string>
     
     <string name="title_activity_choose_meal">ChooseFoodActivity</string>

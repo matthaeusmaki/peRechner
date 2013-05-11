@@ -2,13 +2,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseMealActivity" >
+    tools:context=".ChooseMealActivity"
+    android:background="#dddddd" >
 
-    <TextView
+    <Button
+        android:id="@+id/cancelBtnId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="25dp"
+        android:layout_marginLeft="45dp"
+        android:text="@string/buttonCancel"
+        android:onClick="cancel" />
+
+    <Button
+        android:id="@+id/saveBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/cancelBtnId"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="49dp"
+        android:text="@string/buttonSave"
+        android:onClick="save" />
+
+    <Button
+        android:id="@+id/addRandomBtnId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+        android:layout_marginTop="165dp"
+        android:text="Zufälliges Essen"
+        android:onClick="randomFood" />
 
 </RelativeLayout>
