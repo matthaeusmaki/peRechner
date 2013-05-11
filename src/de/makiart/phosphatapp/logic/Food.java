@@ -5,18 +5,22 @@ public class Food {
 	private int id;
 	private String name;
 	private int peValue;
-	private int portion;
+	private int amount;
 	
 	/**
 	 * Eine neue Speise mit einem Name, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
 	 * @param name
 	 * @param peValue
-	 * @param portion
+	 * @param amount
 	 */
-	public Food(String name, int peValue, int portion) {
+	public Food(String name, int peValue, int amount) {
 		this.name = name;
 		this.peValue = peValue;
-		this.portion = portion;
+		this.amount = amount;
+	}
+	
+	public Food() {
+		
 	}
 
 	/**
@@ -73,16 +77,16 @@ public class Food {
 	 * Gibt Mengenangabe in mg zurück
 	 * @return
 	 */
-	public int getPortion() {
-		return portion;
+	public int getAmount() {
+		return amount;
 	}
 	
 	/**
 	 * Mengenangabe im mg setzen
-	 * @param portion
+	 * @param amount
 	 */
-	public void setPortion(int portion) {
-		this.portion = portion;
+	public void setAmount(int amount) {
+		this.amount = amount;
 	}
 	
 	

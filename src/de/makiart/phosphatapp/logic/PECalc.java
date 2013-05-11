@@ -3,9 +3,9 @@ package de.makiart.phosphatapp.logic;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.makiart.phosphatapp.data.FoodData;
-
+import android.content.res.AssetManager;
 import android.util.Log;
+import de.makiart.phosphatapp.data.FoodData;
 
 public class PECalc {
 
@@ -14,7 +14,11 @@ public class PECalc {
 	private int phosphatCount = 0;
 //	private int pillCount;
 	
-	private FoodData data = new FoodData();
+	private FoodData data;
+	
+	public PECalc(AssetManager assets) {
+		data = new FoodData(assets);
+	}
 	
 	public Food addFood(int id) {
 		Log.i("PECalc.addFood()", "add food");

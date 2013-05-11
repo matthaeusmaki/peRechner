@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+food:
+	name: 	Name der SpeValueise
+	peValue:		PE Wert der SpeValueise
+	amount:	Menge in mg
+ -->
+<foodUnits>
+    <food>
+        <name>Wiener Würstchen</name>
+        <peValue>3</peValue>
+        <amount>150</amount>
+    </food>
+    
+    <food>
+        <name>Kartoffelsalat</name>
+        <peValue>1</peValue>
+        <amount>200</amount>
+    </food>
+    
+    <food>
+        <name>Senf</name>
+        <peValue>0</peValue>
+        <amount>15</amount>
+    </food>
+    
+    <food>
+        <name>Grüne Bohnen</name>
+        <peValue>0</peValue>
+        <amount>100</amount>
+    </food>
+    
+    <food>
+        <name>Bratkartoffeln</name>
+        <peValue>1</peValue>
+        <amount>200</amount>
+    </food>
+    
+    <food>
+        <name>Rindersteak</name>
+        <peValue>3</peValue>
+        <amount>150</amount>
+    </food>
+    
+    <food>
+        <name>Orange</name>
+        <peValue>0</peValue>
+        <amount>100</amount>
+    </food>
+    
+</foodUnits>

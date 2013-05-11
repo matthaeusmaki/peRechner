@@ -27,11 +27,9 @@ public class PhosphatActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		if (logic == null) {
-			setContentView(R.layout.activity_phosphat);
-			logic = new PECalc();
-			mealList = (LinearLayout) findViewById(R.id.mealListId);
-		}
+		setContentView(R.layout.activity_phosphat);
+		logic = new PECalc(getAssets());
+		mealList = (LinearLayout) findViewById(R.id.mealListId);
 	}
 
 	@Override
