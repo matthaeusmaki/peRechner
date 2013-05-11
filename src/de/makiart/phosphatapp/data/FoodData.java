@@ -30,22 +30,16 @@ public class FoodData {
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            
-            List<Food> foodList = new ArrayList<Food>();
             parser.require(XmlPullParser.START_TAG, null, "foodUnits");
             while (parser.next() != XmlPullParser.END_TAG) {
             	if (parser.getEventType() != XmlPullParser.START_TAG) {
             		continue;
             	}
-            	
             	String name = parser.getName();
             	if (name.equals("food")) {
             		selectableFood.add(readFood(parser));
             	}
-            	
             }
-            Log.i("FoodData.loadFoodData().foodList.size()", String.valueOf(foodList.size()));
-            
         } catch (XmlPullParserException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
