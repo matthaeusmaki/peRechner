@@ -5,7 +5,7 @@ import android.app.Activity;
 import android.view.Menu;
 
 /**
- * Ansicht für die Auswahl der Speise
+ * Ansicht für die Auswahl der Speise und Menge.
  * @author mat
  *
  */
