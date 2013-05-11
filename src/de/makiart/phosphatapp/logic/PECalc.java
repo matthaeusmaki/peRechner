@@ -41,10 +41,24 @@ public class PECalc {
 		calculatePe();
 	}
 	
+	/**
+	 * Berechnen der Phosphateinheiten.
+	 * Zwei 0 PE Werte ergeben 1 PE.
+	 */
 	private void calculatePe() {
 		phosphatCount = 0;
+		boolean isOnePeZero = false;
 		for (Food f : meal) {
-			phosphatCount += f.getPeValue();
+			int value = f.getPeValue();
+			if (isOnePeZero && value == 0) {
+				phosphatCount += 1;
+				isOnePeZero = false;
+			} else {
+				phosphatCount += value;
+				if (value == 0) {
+					isOnePeZero = true;
+				}
+			}
 		}
 	}
 	
