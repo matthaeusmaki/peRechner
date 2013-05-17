@@ -20,13 +20,12 @@ public class PECalc {
 		data = new FoodData(assets);
 	}
 	
-	public Food addFood(int id) {
+	public Food addFood() {
 		Log.i("PECalc.addFood()", "add food");
 		
 		Food selected = data.getRandomFood();
-		selected.setId(id);
 		meal.add(selected);
-		calculatePe();
+		this.calculatePe();
 		
 		return selected;
 	}

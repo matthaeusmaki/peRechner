@@ -1,8 +1,12 @@
 package de.makiart.phosphatapp;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,14 +27,17 @@ public class PhosphatActivity extends Activity {
 
 	private PECalc logic;
 	private int idCount = 0;
-	private LinearLayout mealList;
+	private int phosphatCount = 0;
+	private LinearLayout foodViewList;
+	private List<Food> foodList;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_phosphat);
 		logic = new PECalc(getAssets());
-		mealList = (LinearLayout) findViewById(R.id.mealListId);
+		foodViewList = (LinearLayout) findViewById(R.id.mealListId);
+		foodList = new ArrayList<Food>();
 	}
 
 	@Override
@@ -39,18 +46,35 @@ public class PhosphatActivity extends Activity {
 		getMenuInflater().inflate(R.menu.activity_phosphat, menu);
 		return true;
 	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent in) {
+		super.onActivityResult(requestCode, resultCode, in);
+		Log.i("onActivityResult", "asdfasfdasfd");
+		
+		if (requestCode == 1) {
+			if (resultCode == RESULT_OK) {
+				Food food = new Food();
+				food.setId(in.getIntExtra(Food.FOOD_ATTRIBUTE_ID, 0));
+				food.setName(in.getStringExtra(Food.FOOD_ATTRIBUTE_NAME));
+				food.setPeValue(in.getIntExtra(Food.FOOD_ATTRIBUTE_PEVALUE, 0));
+				food.setAmount(in.getIntExtra(Food.FOOD_ATTRIBUTE_AMOUNT, 0));
+				foodList.add(food);
+				foodViewList.addView(createMealListItem(food));
+				calculatePe();
+				((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(phosphatCount));
+			}
+		}
+	}
 
 	/**
-	 * Hinzufügen einer Speise. Wird dem LinearLayout hinzugefügt
+	 * Hinzufügen einer Speise. 
+	 * Öffnet die Ansicht für die Essens Auswahl.
 	 * @param view
 	 */
 	public void addMeal(View view) {
-//		Intent myIntent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
-//		PhosphatActivity.this.startActivity(myIntent);
-//		finish();
-		
-		mealList.addView(createMealListItem(logic.addFood(idCount)));
-		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));
+		Intent intent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
+		this.startActivityForResult(intent, 1);
 	}
 	
 	/**
@@ -58,9 +82,19 @@ public class PhosphatActivity extends Activity {
 	 * @param view
 	 */
 	public void removeMeal(View view) {
-		logic.removeFood(((View) view.getParent()).getId());
-		mealList.removeView((View) view.getParent());
-		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(logic.getPhosphatCount()));
+		int id = ((View) view.getParent()).getId();
+		Log.i("PECalc.removeFood()", "remove food with id: " + id);
+		List<Food> tmp = new ArrayList<Food>();
+		tmp.addAll(foodList);
+		for (Food food : tmp) {
+			if (food.getId() == id) {
+				foodList.remove(food);
+				break;
+			}
+		}
+		calculatePe();
+		foodViewList.removeView((View) view.getParent());
+		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(phosphatCount));
 	}
 	
 	private LinearLayout createMealListItem(Food addedFood) {
@@ -83,7 +117,23 @@ public class PhosphatActivity extends Activity {
 		mealListItem.addView(nameTxt);
 		mealListItem.addView(peTxt);
 		mealListItem.setId(idCount);
-		idCount++;
 		return mealListItem;
+	}
+	
+	private void calculatePe() {
+		phosphatCount = 0;
+		boolean isOnePeZero = false;
+		for (Food f : foodList) {
+			int value = f.getPeValue();
+			if (isOnePeZero && value == 0) {
+				phosphatCount += 1;
+				isOnePeZero = false;
+			} else {
+				phosphatCount += value;
+				if (value == 0) {
+					isOnePeZero = true;
+				}
+			}
+		}
 	}
 }

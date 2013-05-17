@@ -1,5 +1,7 @@
 package de.makiart.phosphatapp;
 
+import de.makiart.phosphatapp.data.FoodData;
+import de.makiart.phosphatapp.logic.Food;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,9 +9,8 @@ import android.view.Menu;
 import android.view.View;
 
 /**
- * Ansicht für die Auswahl der Speise und Menge.
+ * Ansicht für die Auswahl der Speisen und Menge.
  * @author mat
- *
  */
 
 public class ChooseFoodActivity extends Activity {
@@ -28,16 +29,25 @@ public class ChooseFoodActivity extends Activity {
 	}
 	
 	public void cancel(View view) {
-		Intent myIntent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
-		ChooseFoodActivity.this.startActivity(myIntent);
+		// Abbrechen und Eingabe verwerfen
+		setResult(RESULT_CANCELED);
 		finish();
 	}
 	
 	public void save(View view) {
 		// save configuration
+		Food food = new FoodData(getAssets()).getRandomFood();
+		Intent intent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
+		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, food.getId());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, food.getName());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, food.getPeValue());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, food.getAmount());
+		setResult(RESULT_OK, intent);
+		finish();
 	}
 	
 	public void randomFood(View view) {
 		// generate random food
 	}
+	
 }

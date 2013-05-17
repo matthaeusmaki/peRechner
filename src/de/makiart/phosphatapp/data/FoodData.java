@@ -15,6 +15,7 @@ import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
 
+	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
 	private AssetManager assets;
 	
@@ -67,7 +68,7 @@ public class FoodData {
 	            skip(parser);
 	        }
 	    }
-	    return new Food(name, peValue, amount);
+	    return new Food(-1, name, peValue, amount);
 	}
 	
 	private String readName(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -122,6 +123,6 @@ public class FoodData {
 		Log.i("FoodData.getRandromFood()", String.valueOf(r));
 		
 		Food prototype = selectableFood.get(r);
-		return new Food(prototype.getName(), prototype.getPeValue(), prototype.getAmount());
+		return new Food(idCount++, prototype.getName(), prototype.getPeValue(), prototype.getAmount());
 	}
 }

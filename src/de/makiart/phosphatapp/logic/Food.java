@@ -7,13 +7,19 @@ public class Food {
 	private int peValue;
 	private int amount;
 	
+	public static final String FOOD_ATTRIBUTE_ID = "id";
+	public static final String FOOD_ATTRIBUTE_NAME = "name";
+	public static final String FOOD_ATTRIBUTE_PEVALUE = "peValue";
+	public static final String FOOD_ATTRIBUTE_AMOUNT = "amount";
+	
 	/**
 	 * Eine neue Speise mit einem Name, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
 	 * @param name
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(String name, int peValue, int amount) {
+	public Food(int id, String name, int peValue, int amount) {
+		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
 		this.amount = amount;
