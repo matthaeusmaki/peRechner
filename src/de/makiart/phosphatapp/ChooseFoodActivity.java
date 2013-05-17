@@ -38,7 +38,7 @@ public class ChooseFoodActivity extends Activity {
 		// save configuration
 		Food food = new FoodData(getAssets()).getRandomFood();
 		Intent intent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
-		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, food.getId());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, getIntent().getIntExtra("id", -1));
 		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, food.getName());
 		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, food.getPeValue());
 		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, food.getAmount());

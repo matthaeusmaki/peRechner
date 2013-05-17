@@ -25,7 +25,6 @@ import de.makiart.phosphatapp.logic.PECalc;
 
 public class PhosphatActivity extends Activity {
 
-	private PECalc logic;
 	private int idCount = 0;
 	private int phosphatCount = 0;
 	private LinearLayout foodViewList;
@@ -35,7 +34,6 @@ public class PhosphatActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_phosphat);
-		logic = new PECalc(getAssets());
 		foodViewList = (LinearLayout) findViewById(R.id.mealListId);
 		foodList = new ArrayList<Food>();
 	}
@@ -55,7 +53,8 @@ public class PhosphatActivity extends Activity {
 		if (requestCode == 1) {
 			if (resultCode == RESULT_OK) {
 				Food food = new Food();
-				food.setId(in.getIntExtra(Food.FOOD_ATTRIBUTE_ID, 0));
+				int foodId = in.getIntExtra(Food.FOOD_ATTRIBUTE_ID, -1);
+				food.setId(foodId > 0 ? foodId : idCount++);
 				food.setName(in.getStringExtra(Food.FOOD_ATTRIBUTE_NAME));
 				food.setPeValue(in.getIntExtra(Food.FOOD_ATTRIBUTE_PEVALUE, 0));
 				food.setAmount(in.getIntExtra(Food.FOOD_ATTRIBUTE_AMOUNT, 0));
@@ -74,6 +73,7 @@ public class PhosphatActivity extends Activity {
 	 */
 	public void addMeal(View view) {
 		Intent intent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
+		intent.putExtra("id", idCount++);
 		this.startActivityForResult(intent, 1);
 	}
 	
@@ -116,7 +116,7 @@ public class PhosphatActivity extends Activity {
 		mealListItem.addView(removeButton);
 		mealListItem.addView(nameTxt);
 		mealListItem.addView(peTxt);
-		mealListItem.setId(idCount);
+		mealListItem.setId(addedFood.getId());
 		return mealListItem;
 	}
 	
