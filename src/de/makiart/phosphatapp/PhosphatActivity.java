@@ -14,7 +14,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import de.makiart.phosphatapp.logic.Food;
-import de.makiart.phosphatapp.logic.PECalc;
 
 /**
  * Ansicht für Hinzufügen einer Speise und Anzeigen ob bereits etwas hinzugefügt wurde.

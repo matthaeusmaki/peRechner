@@ -15,9 +15,20 @@ import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
 
+//	public static final PEVALUE_TAG = "peValue";
+	
 	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
+	private List<String> foodCategories = new ArrayList<String>();
 	private AssetManager assets;
+	
+	public enum Category {
+		BEEF,
+		FRUIT,
+		VEGETABLE,
+		SAUSAGE,
+		UNDEFNED;
+	};
 	
 	public FoodData(AssetManager assets) {
 		this.assets = assets;
@@ -116,6 +127,37 @@ public class FoodData {
 	           break;
 	       }
 	   }
+	}
+	
+	public Food getFoodByName(String name) {
+		for (Food food : selectableFood) {
+			if (food.getName().equals(name)) {
+				return food;
+			}
+		}
+		return null;
+	}
+	
+	public List<String> getListOfFoodStrngs() {
+		List<String> ret = new ArrayList<String>();
+		for (Food food : selectableFood) {
+			ret.add(food.getName());
+		}
+		return ret;
+	}
+	
+	public List<Food> ListOfFoodByCaterie(Category category) {
+		ArrayList<Food> ret = new ArrayList<Food>();
+		for (Food food : selectableFood) {
+			if (food.getCategory().equals(category)) {
+				ret.add(food);
+			}
+		}
+		return ret;
+	}
+	
+	public List<String> getListOfCategories() {
+		return foodCategories;
 	}
 	
 	public Food getRandomFood() {

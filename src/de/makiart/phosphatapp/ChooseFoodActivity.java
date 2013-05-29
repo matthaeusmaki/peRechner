@@ -1,12 +1,17 @@
 package de.makiart.phosphatapp;
 
-import de.makiart.phosphatapp.data.FoodData;
-import de.makiart.phosphatapp.logic.Food;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
+import de.makiart.phosphatapp.data.FoodData;
+import de.makiart.phosphatapp.logic.Food;
 
 /**
  * Ansicht für die Auswahl der Speisen und Menge.
@@ -14,11 +19,18 @@ import android.view.View;
  */
 
 public class ChooseFoodActivity extends Activity {
+	List<String> spinnerArray = new ArrayList<String>();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_meal);
+		
+		spinnerArray.addAll(new FoodData(getAssets()).getListOfFoodStrngs());
+		
+		Spinner spinner = (Spinner) findViewById(R.id.spinner);
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
+		spinner.setAdapter(adapter);
 	}
 
 	@Override

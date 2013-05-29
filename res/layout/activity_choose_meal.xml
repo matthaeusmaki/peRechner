@@ -2,9 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChooseMealActivity"
-    android:background="#dddddd" >
+    android:background="#dddddd"
+    tools:context=".ChooseMealActivity" >
 
+    <Spinner
+		android:id="@+id/spinner"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content" />
+    
+    
     <Button
         android:id="@+id/cancelBtnId"
         android:layout_width="wrap_content"
@@ -25,15 +31,5 @@
         android:layout_marginRight="49dp"
         android:text="@string/buttonSave"
         android:onClick="save" />
-
-    <Button
-        android:id="@+id/addRandomBtnId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="165dp"
-        android:text="Zufälliges Essen"
-        android:onClick="randomFood" />
 
 </RelativeLayout>

@@ -1,9 +1,12 @@
 package de.makiart.phosphatapp.logic;
 
+import de.makiart.phosphatapp.data.FoodData.Category;
+
 public class Food {
 
 	private int id;
 	private String name;
+	private Category category;
 	private int peValue;
 	private int amount;
 	
@@ -95,5 +98,19 @@ public class Food {
 		this.amount = amount;
 	}
 	
-	
+	/**
+	 * Gibt Essens Kategorie dieser Speise zurück
+	 * @return
+	 */
+	public Category getCategory() {
+		return category;
+	}
+
+	/**
+	 * Setzt Essenskategory dieser Speise
+	 * @param category
+	 */
+	public void setCategory(Category category) {
+		this.category = category;
+	}
 }

@@ -1,51 +1,114 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- 
 food:
-	name: 	Name der SpeValueise
-	peValue:		PE Wert der SpeValueise
-	amount:	Menge in mg
+	name:	 	Name der SpeValueise
+	category:	Typ des Essens
+	peValue:	PE Wert der SpeValueise
+	amount:		Menge in mg
  -->
 <foodUnits>
+    
+    <!-- Wurst sausages -->
     <food>
         <name>Wiener Würstchen</name>
+        <category>sausages</category>
+        <peValue>3</peValue>
+        <amount>150</amount>
+    </food>
+   
+    <food>
+        <name>Depreziner</name>
+        <category>sausages</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+        
+    
+	<!-- Fleisch meats -->    
+    <food>
+        <name>Rindersteak</name>
+        <category>meats</category>
         <peValue>3</peValue>
         <amount>150</amount>
     </food>
     
     <food>
+        <name>Scnitzel</name>
+        <category>meats</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+    
+    
+    <!-- Backwaren pastries -->
+    <food>
         <name>Kartoffelsalat</name>
+        <category>gemüse</category>
+        <peValue>1</peValue>
+        <amount>200</amount>
+    </food>
+    
+    
+    <!-- Gemüse vegetables -->
+    <food>
+        <name>Kartoffelsalat</name>
+        <category>vegetables</category>
         <peValue>1</peValue>
         <amount>200</amount>
     </food>
     
     <food>
-        <name>Senf</name>
-        <peValue>0</peValue>
-        <amount>15</amount>
-    </food>
-    
-    <food>
         <name>Grüne Bohnen</name>
+        <category>vegetables</category>
         <peValue>0</peValue>
         <amount>100</amount>
     </food>
     
     <food>
         <name>Bratkartoffeln</name>
+        <category>vegetables</category>
         <peValue>1</peValue>
         <amount>200</amount>
     </food>
     
-    <food>
-        <name>Rindersteak</name>
-        <peValue>3</peValue>
-        <amount>150</amount>
-    </food>
     
+    <!-- Obst fruits -->
     <food>
         <name>Orange</name>
+        <category>fruits</category>
         <peValue>0</peValue>
         <amount>100</amount>
     </food>
+
+    <food>
+        <name>Kiwi</name>
+        <category>fruits</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+    
+    <food>
+        <name>Banane</name>
+        <category>fruits</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+
+    <food>
+        <name>Apfel</name>
+        <category>fruits</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+    
+    
+    <!-- Sonstiges other -->
+    <food>
+        <name>Senf</name>
+        <category>other</category>
+        <peValue>0</peValue>
+        <amount>15</amount>
+    </food>
+    
     
 </foodUnits>
