@@ -26,8 +26,9 @@ public class ChooseFoodActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_meal);
 		
-		spinnerArray.addAll(new FoodData(getAssets()).getListOfFoodStrngs());
-		
+		spinnerArray.addAll(new FoodData(getAssets(), getResources()).getListOfCategories());
+//		spinnerArray.addAll(new FoodData(getAssets()).getListOfFoodStrngs());
+
 		Spinner spinner = (Spinner) findViewById(R.id.spinner);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
 		spinner.setAdapter(adapter);
@@ -48,7 +49,7 @@ public class ChooseFoodActivity extends Activity {
 	
 	public void save(View view) {
 		// save configuration
-		Food food = new FoodData(getAssets()).getRandomFood();
+		Food food = new FoodData(getAssets(), getResources()).getRandomFood();
 		Intent intent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
 		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, getIntent().getIntExtra("id", -1));
 		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, food.getName());

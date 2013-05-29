@@ -1,12 +1,11 @@
 package de.makiart.phosphatapp.logic;
 
-import de.makiart.phosphatapp.data.FoodData.Category;
 
 public class Food {
 
 	private int id;
 	private String name;
-	private Category category;
+	private String category;
 	private int peValue;
 	private int amount;
 	
@@ -16,16 +15,17 @@ public class Food {
 	public static final String FOOD_ATTRIBUTE_AMOUNT = "amount";
 	
 	/**
-	 * Eine neue Speise mit einem Name, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
+	 * Eine neue Speise mit einem Name, dem Typ des Essens,, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
 	 * @param name
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(int id, String name, int peValue, int amount) {
+	public Food(int id, String name, String category, int peValue, int amount) {
 		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
 		this.amount = amount;
+		this.category = category;
 	}
 	
 	public Food() {
@@ -102,7 +102,7 @@ public class Food {
 	 * Gibt Essens Kategorie dieser Speise zurück
 	 * @return
 	 */
-	public Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
@@ -110,7 +110,7 @@ public class Food {
 	 * Setzt Essenskategory dieser Speise
 	 * @param category
 	 */
-	public void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 }

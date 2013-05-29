@@ -9,46 +9,59 @@ import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import android.content.res.AssetManager;
+import android.content.res.Resources;
 import android.util.Log;
 import android.util.Xml;
+import de.makiart.phosphatapp.R;
 import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
-
-//	public static final PEVALUE_TAG = "peValue";
+	
+	private static final String FOODDATA_PATH = "foodData.xml";
+	
+	public static final String FOODUNITS_TAG = "foodUnits";
+	public static final String FOOD_TAG = "food";
+	public static final String PEVALUE_TAG = "peValue";
+	public static final String NAME_TAG = "name";
+	public static final String AMOUNT_TAG = "amount";
+	public static final String CATEGORY_TAG = "category";
+	
+	public static final String MEATS = "meats";
+	public static final String SAUSAGES = "sausages";
+	public static final String PASTRIES = "pastries";
+	public static final String VEGETABLES = "vegetables";
+	public static final String FRUITS = "fruits";
+	public static final String OTHER = "other";
+	
 	
 	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
 	private List<String> foodCategories = new ArrayList<String>();
+	
 	private AssetManager assets;
+	private Resources resources;
 	
-	public enum Category {
-		BEEF,
-		FRUIT,
-		VEGETABLE,
-		SAUSAGE,
-		UNDEFNED;
-	};
-	
-	public FoodData(AssetManager assets) {
+	public FoodData(AssetManager assets, Resources resources) {
 		this.assets = assets;
+		this.resources = resources;
 		loadFoodData();
+		translateCategoryNames();
 	}
 	
 	private void loadFoodData() {
 		try {
-			InputStream in = this.assets.open("foodData.xml");
+			InputStream in = this.assets.open(FOODDATA_PATH);
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
             parser.nextTag();
-            parser.require(XmlPullParser.START_TAG, null, "foodUnits");
+            parser.require(XmlPullParser.START_TAG, null, FOODUNITS_TAG);
             while (parser.next() != XmlPullParser.END_TAG) {
             	if (parser.getEventType() != XmlPullParser.START_TAG) {
             		continue;
             	}
             	String name = parser.getName();
-            	if (name.equals("food")) {
+            	if (name.equals(FOOD_TAG)) {
             		selectableFood.add(readFood(parser));
             	}
             }
@@ -60,8 +73,9 @@ public class FoodData {
 	}
 	
 	private Food readFood(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, "food");
+		parser.require(XmlPullParser.START_TAG, null, FOOD_TAG);
 	    String name = "";
+	    String category = "";
 	    int peValue = 0;
 	    int amount = 0;
 	    while (parser.next() != XmlPullParser.END_TAG) {
@@ -69,21 +83,23 @@ public class FoodData {
 	            continue;
 	        }
 	        String tag = parser.getName();
-	        if (tag.equals("name")) {
+	        if (tag.equals(NAME_TAG)) {
 	            name = readName(parser);
-	        } else if (tag.equals("peValue")) {
+	        } else if (tag.equals(PEVALUE_TAG)) {
 	            peValue = readPeValue(parser);
-	        } else if (tag.equals("amount")) {
+	        } else if (tag.equals(AMOUNT_TAG)) {
 	            amount = readAmount(parser);
+	        } else if (tag.equals(CATEGORY_TAG)) {
+	        	category = readCategoty(parser);
 	        } else {
 	            skip(parser);
 	        }
 	    }
-	    return new Food(-1, name, peValue, amount);
+	    return new Food(-1, name, category, peValue, amount);
 	}
 	
 	private String readName(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, "name");
+		parser.require(XmlPullParser.START_TAG, null, NAME_TAG);
 		if (parser.next() == XmlPullParser.TEXT) {
 			String name = parser.getText();
 			parser.nextTag();
@@ -93,7 +109,7 @@ public class FoodData {
 	}
 	
 	private int readPeValue(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, "peValue");
+		parser.require(XmlPullParser.START_TAG, null, PEVALUE_TAG);
 		if (parser.next() == XmlPullParser.TEXT) {
 			String peValue = parser.getText();
 			parser.nextTag();
@@ -103,13 +119,23 @@ public class FoodData {
 	}
 	
 	private int readAmount(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, "amount");
+		parser.require(XmlPullParser.START_TAG, null, AMOUNT_TAG);
 		if (parser.next() == XmlPullParser.TEXT) {
 			String amount = parser.getText();
 			parser.nextTag();
 			return Integer.valueOf(amount);
 		}
 		return 0;
+	}
+	
+	private String readCategoty(XmlPullParser parser) throws XmlPullParserException, IOException {
+		parser.require(XmlPullParser.START_TAG, null, CATEGORY_TAG);
+		if (parser.next() == XmlPullParser.TEXT) {
+			String category = parser.getText();
+			parser.nextTag();
+			return category;
+		}
+		return "";
 	}
 	
 	private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -146,7 +172,7 @@ public class FoodData {
 		return ret;
 	}
 	
-	public List<Food> ListOfFoodByCaterie(Category category) {
+	public List<Food> ListOfFoodByCaterie(String category) {
 		ArrayList<Food> ret = new ArrayList<Food>();
 		for (Food food : selectableFood) {
 			if (food.getCategory().equals(category)) {
@@ -161,10 +187,32 @@ public class FoodData {
 	}
 	
 	public Food getRandomFood() {
-		int r = (int) (Math.random() * selectableFood.size());
-		Log.i("FoodData.getRandromFood()", String.valueOf(r));
+		Food prototype = selectableFood.get((int) (Math.random() * selectableFood.size()));
+		Log.i("FoodData.getRandromFood()", prototype.getName());
+		return new Food(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount());
+	}
+	
+	private void translateCategoryNames() {
+		for (Food food : selectableFood) {
+			String c = food.getCategory();
+			if (c.equals(SAUSAGES)) {
+				c = this.resources.getString(R.string.sausages);
+			} else if (c.equals(MEATS)) {
+				c = this.resources.getString(R.string.meats);
+			} else if (c.equals(VEGETABLES)) {
+				c = this.resources.getString(R.string.vegetables);
+			} else if (c.equals(PASTRIES)) {
+				c = this.resources.getString(R.string.pastries);
+			} else if (c.equals(FRUITS)) {
+				c = this.resources.getString(R.string.fruits);
+			} else if (c.equals(OTHER)) {
+				c = this.resources.getString(R.string.other);
+			}
+				
+			if (!foodCategories.contains(c)) {
+				foodCategories.add(c);
+			}
+		}
 		
-		Food prototype = selectableFood.get(r);
-		return new Food(idCount++, prototype.getName(), prototype.getPeValue(), prototype.getAmount());
 	}
 }

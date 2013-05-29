@@ -17,7 +17,7 @@ public class PECalc {
 	private FoodData data;
 	
 	public PECalc(AssetManager assets) {
-		data = new FoodData(assets);
+//		data = new FoodData(assets);
 	}
 	
 	public Food addFood() {

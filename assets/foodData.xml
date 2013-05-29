@@ -42,14 +42,20 @@ food:
     
     <!-- Backwaren pastries -->
     <food>
+        <name>Semmel</name>
+        <category>pastries</category>
+        <peValue>42</peValue>
+        <amount>1337</amount>
+    </food>
+    
+    <!-- Gemüse vegetables -->
+    <food>
         <name>Kartoffelsalat</name>
-        <category>gemüse</category>
+        <category>vegetables</category>
         <peValue>1</peValue>
         <amount>200</amount>
     </food>
-    
-    
-    <!-- Gemüse vegetables -->
+
     <food>
         <name>Kartoffelsalat</name>
         <category>vegetables</category>

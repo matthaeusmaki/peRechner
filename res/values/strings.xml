@@ -15,15 +15,12 @@
     
     <string name="title_activity_choose_meal">ChooseFoodActivity</string>
 
-    <string-array name="planets_array">
-        <item>Mercury</item>
-        <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
-        <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
-    </string-array>
+    <string name="sausages">Wurst</string>
+    <string name="meats">Fleisch</string>
+    <string name="vegetables">Gemüse</string>
+    <string name="pastries">Backwaren</string>
+    <string name="fruits">Obst</string>
+    <string name="other">Sonstiges</string>
+    
     
 </resources>
