@@ -37,6 +37,7 @@ public final class R {
         public static final int buttonRemoveAll=0x7f040005;
         public static final int buttonRemoveMeal=0x7f040004;
         public static final int buttonSave=0x7f040007;
+        public static final int food_spinner_prompt=0x7f040010;
         public static final int fruits=0x7f04000e;
         public static final int hello_world=0x7f040001;
         public static final int meats=0x7f04000b;

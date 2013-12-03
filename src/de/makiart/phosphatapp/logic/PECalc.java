@@ -1,5 +1,11 @@
 package de.makiart.phosphatapp.logic;
 
+/**
+ * Main Activity
+ * @author mat
+ *  
+ */
+
 import java.util.ArrayList;
 import java.util.List;
 

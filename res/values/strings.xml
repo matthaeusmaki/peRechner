@@ -22,5 +22,7 @@
     <string name="fruits">Obst</string>
     <string name="other">Sonstiges</string>
     
+    <string name="food_spinner_prompt">Essen auswählen</string>
+    
     
 </resources>

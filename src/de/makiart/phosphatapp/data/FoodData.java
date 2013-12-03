@@ -172,6 +172,10 @@ public class FoodData {
 		return ret;
 	}
 	
+	public List<Food> getListOfFood() {
+		return selectableFood;
+	}
+	
 	public List<Food> ListOfFoodByCaterie(String category) {
 		ArrayList<Food> ret = new ArrayList<Food>();
 		for (Food food : selectableFood) {

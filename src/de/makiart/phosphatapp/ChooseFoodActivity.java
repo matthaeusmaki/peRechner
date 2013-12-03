@@ -6,8 +6,11 @@ import java.util.List;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import de.makiart.phosphatapp.data.FoodData;
@@ -18,20 +21,26 @@ import de.makiart.phosphatapp.logic.Food;
  * @author mat
  */
 
-public class ChooseFoodActivity extends Activity {
-	List<String> spinnerArray = new ArrayList<String>();
+public class ChooseFoodActivity extends Activity implements OnItemSelectedListener{
+	
+	private List<Food> listOfFood = new ArrayList<Food>();
+	private Food selectedFood;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_choose_meal);
 		
-		spinnerArray.addAll(new FoodData(getAssets(), getResources()).getListOfCategories());
-//		spinnerArray.addAll(new FoodData(getAssets()).getListOfFoodStrngs());
+//		spinnerArray.addAll(new FoodData(getAssets(), getResources()).getListOfCategories());
+		FoodData foodData = new FoodData(getAssets(), getResources());
+		List<String> spinnerArray = foodData.getListOfFoodStrngs();
+		listOfFood.clear();
+		listOfFood.addAll(foodData.getListOfFood());
 
 		Spinner spinner = (Spinner) findViewById(R.id.spinner);
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerArray);
 		spinner.setAdapter(adapter);
+		spinner.setOnItemSelectedListener(this);
 	}
 
 	@Override
@@ -49,12 +58,12 @@ public class ChooseFoodActivity extends Activity {
 	
 	public void save(View view) {
 		// save configuration
-		Food food = new FoodData(getAssets(), getResources()).getRandomFood();
+//		Food food = new FoodData(getAssets(), getResources()).getRandomFood();
 		Intent intent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
 		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, getIntent().getIntExtra("id", -1));
-		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, food.getName());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, food.getPeValue());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, food.getAmount());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
 		setResult(RESULT_OK, intent);
 		finish();
 	}
@@ -63,4 +72,16 @@ public class ChooseFoodActivity extends Activity {
 		// generate random food
 	}
 	
+	@Override
+	public void onItemSelected(AdapterView<?> spinner, View arg1, int pos, long id) {
+		selectedFood = listOfFood.get(pos);
+		Log.i("itemselect", "name: " + selectedFood.getName());
+		Log.i("itemselect", "pe: " + selectedFood.getId());
+		Log.i("itemselect", "amount: " + selectedFood.getAmount());
+	}
+
+	@Override
+	public void onNothingSelected(AdapterView<?> arg0) {
+		Log.i("on nothing", "nothing");
+	}
 }

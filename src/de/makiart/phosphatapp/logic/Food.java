@@ -1,6 +1,5 @@
 package de.makiart.phosphatapp.logic;
 
-
 public class Food {
 
 	private int id;
@@ -15,7 +14,7 @@ public class Food {
 	public static final String FOOD_ATTRIBUTE_AMOUNT = "amount";
 	
 	/**
-	 * Eine neue Speise mit einem Name, dem Typ des Essens,, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
+	 * Eine neue Speise mit einem Name, dem Typ des Essens, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
 	 * @param name
 	 * @param peValue
 	 * @param amount

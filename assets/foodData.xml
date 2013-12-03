@@ -5,115 +5,238 @@ food:
 	category:	Typ des Essens
 	peValue:	PE Wert der SpeValueise
 	amount:		Menge in mg
+	
+	categories:
+	sausage		Wurst
+	meat		Fleisch
+	fish		Fisch
+	cheese		Käse
+	milk		Milchprodukte
+	fat			Fette
+	vegetable	Gemüse
+	fruit		Obst
+	pastry		Backwaren
+	cake		Kuchen/Gebäck
+	candy		Süßsigkeiten
+	sauce		Soßen
+	other		Sonstiges
  -->
 <foodUnits>
     
-    <!-- Wurst sausages -->
+    <!-- Wurst sausage -->
     <food>
         <name>Wiener Würstchen</name>
-        <category>sausages</category>
+        <category>sausage</category>
         <peValue>3</peValue>
         <amount>150</amount>
-    </food>
-   
+    </food>   
     <food>
         <name>Depreziner</name>
-        <category>sausages</category>
+        <category>sausage</category>
         <peValue>42</peValue>
         <amount>1337</amount>
     </food>
         
     
-	<!-- Fleisch meats -->    
+	<!-- Fleisch meat -->    
     <food>
-        <name>Rindersteak</name>
-        <category>meats</category>
+        <name>Rind</name>
+        <category>meat</category>
         <peValue>3</peValue>
         <amount>150</amount>
     </food>
-    
     <food>
-        <name>Scnitzel</name>
-        <category>meats</category>
+        <name>Wild</name>
+        <category>meat</category>
+        <peValue>4</peValue>
+        <amount>150</amount>            
+    </food>
+    <!-- <food>
+        <name>Schnitzel</name>
+        <category>meat</category>
         <peValue>42</peValue>
         <amount>1337</amount>
+    </food> -->
+    
+    <!-- Fisch fish -->
+    <food>
+        <name>Fischfilet</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>            
     </food>
     
+    <!-- Käse cheese -->
+    <food>
+        <name>Brie</name>
+        <category>cheese</category>
+        <peValue>1</peValue>
+        <amount>50</amount>            
+    </food>
+    <food>
+        <name>Frischkäse</name>
+        <category>cheese</category>
+        <peValue>1</peValue>
+        <amount>50</amount>            
+    </food>
+    <food>
+        <name>Weichkäse</name>
+        <category>cheese</category>
+        <peValue>2</peValue>
+        <amount>50</amount>            
+    </food>
+    <food>
+        <name>Gouda</name>
+        <category>cheese</category>
+        <peValue>3</peValue>
+        <amount>50</amount>            
+    </food>
+    
+    <!-- Milchprodukte milk -->
+    <food>
+        <name>Milch</name>
+        <category>milk</category>
+        <peValue>2</peValue>
+        <amount>200</amount>            
+    </food>
+    <food>
+        <name>Joghurt</name>
+        <category>milk</category>
+        <peValue>2</peValue>
+        <amount>150</amount>            
+    </food>
+    <food>
+        <name>Quark</name>
+        <category>milk</category>
+        <peValue>3</peValue>
+        <amount></amount>            
+    </food>
+    
+    <!-- Fette fat -->
+    <!-- <food>
+        <name>Öl, Butter, MArgarine</name>
+        <category>fat</category>
+        <peValue>0</peValue>
+        <amount>1</amount>            
+    </food>-->
     
     <!-- Backwaren pastries -->
     <food>
         <name>Semmel</name>
-        <category>pastries</category>
-        <peValue>42</peValue>
-        <amount>1337</amount>
-    </food>
-    
-    <!-- Gemüse vegetables -->
-    <food>
-        <name>Kartoffelsalat</name>
-        <category>vegetables</category>
+        <category>pastry</category>
         <peValue>1</peValue>
-        <amount>200</amount>
-    </food>
-
-    <food>
-        <name>Kartoffelsalat</name>
-        <category>vegetables</category>
-        <peValue>1</peValue>
-        <amount>200</amount>
-    </food>
-    
-    <food>
-        <name>Grüne Bohnen</name>
-        <category>vegetables</category>
-        <peValue>0</peValue>
         <amount>100</amount>
     </food>
-    
     <food>
-        <name>Bratkartoffeln</name>
-        <category>vegetables</category>
+        <name>Brot</name>
+        <category>pastry</category>
         <peValue>1</peValue>
-        <amount>200</amount>
+        <amount>100</amount>            
+    </food>
+    <food>
+        <name>Breze</name>
+        <category>pastry</category>
+        <peValue>1</peValue>
+        <amount>1</amount>            
     </food>
     
+    <!-- Gemüse vegetable -->
+    <food>
+        <name>Kartoffel</name>
+        <category>vegetable</category>
+        <peValue>1</peValue>
+        <amount>200</amount>
+    </food>    
+    <food>
+        <name>Grüne Bohnen</name>
+        <category>vegetable</category>
+        <peValue>0</peValue>
+        <amount>100</amount>
+    </food>    
     
-    <!-- Obst fruits -->
+    <!-- Obst fruit -->
     <food>
         <name>Orange</name>
-        <category>fruits</category>
+        <category>fruit</category>
         <peValue>0</peValue>
         <amount>100</amount>
     </food>
 
     <food>
         <name>Kiwi</name>
-        <category>fruits</category>
+        <category>fruit</category>
         <peValue>42</peValue>
         <amount>1337</amount>
     </food>
     
     <food>
         <name>Banane</name>
-        <category>fruits</category>
+        <category>fruit</category>
         <peValue>42</peValue>
         <amount>1337</amount>
     </food>
 
     <food>
         <name>Apfel</name>
-        <category>fruits</category>
+        <category>fruit</category>
         <peValue>42</peValue>
         <amount>1337</amount>
     </food>
     
+    <!-- Kuchen/Gebäck cake -->
+    <food>
+        <name>Obstkuchen</name>
+        <category>cake</category>
+        <peValue>1</peValue>
+        <amount>120</amount>            
+    </food>
+    <food>
+        <name>Käsekuchen</name>
+        <category>cake</category>
+        <peValue>2</peValue>
+        <amount>120</amount>            
+    </food>
+    
+    <!-- Süßigkeiten candy -->
+    <food>
+        <name>Dunkle Schokolade</name>
+        <category>candy</category>
+        <peValue>2</peValue>
+        <amount>50</amount>            
+    </food>
+    <food>
+        <name>Milch-Eiscreme</name>
+        <category>cake</category>
+        <peValue>1</peValue>
+        <amount>60</amount>            
+    </food>
+    
+    <!-- Soßen sauce -->
+    <food>
+        <name>Bratensoße</name>
+        <category>sauce</category>
+        <peValue>1</peValue>
+        <amount>1</amount>            
+    </food>
     
     <!-- Sonstiges other -->
+    <food>
+        <name>Hühnerei</name>
+        <category>other</category>
+        <peValue>2</peValue>
+        <amount>1</amount>            
+    </food>
     <food>
         <name>Senf</name>
         <category>other</category>
         <peValue>0</peValue>
         <amount>15</amount>
+    </food>
+    <food>
+        <name>Backpulver</name>
+        <category>other</category>
+        <peValue>15</peValue>
+        <amount>1</amount>            
     </food>
     
     
