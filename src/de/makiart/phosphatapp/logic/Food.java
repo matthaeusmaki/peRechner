@@ -7,11 +7,13 @@ public class Food {
 	private String category;
 	private int peValue;
 	private int amount;
+	private String measurement;
 	
 	public static final String FOOD_ATTRIBUTE_ID = "id";
 	public static final String FOOD_ATTRIBUTE_NAME = "name";
 	public static final String FOOD_ATTRIBUTE_PEVALUE = "peValue";
 	public static final String FOOD_ATTRIBUTE_AMOUNT = "amount";
+	public static final String FOOD_ATTRIBUTE_MEASUREMENT = "measurement";
 	
 	/**
 	 * Eine neue Speise mit einem Name, dem Typ des Essens, den PE Wert (Phosphateinheit) und der Menge in mg erstellen.
@@ -19,12 +21,13 @@ public class Food {
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(int id, String name, String category, int peValue, int amount) {
+	public Food(int id, String name, String category, int peValue, int amount, String measurement) {
 		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
 		this.amount = amount;
 		this.category = category;
+		this.measurement = measurement;
 	}
 	
 	public Food() {
@@ -103,6 +106,22 @@ public class Food {
 	 */
 	public String getCategory() {
 		return category;
+	}
+
+	/**
+	 * Gibt die Maßeinheit für die Mengenangabe zurück
+	 * @return
+	 */
+	public String getMeasurement() {
+		return measurement;
+	}
+	
+	/**
+	 * Setzen der Maßeinheit für die Mengenangabe
+	 * @return
+	 */
+	public void setMeasurement(String measurement) {
+		this.measurement = measurement;
 	}
 
 	/**

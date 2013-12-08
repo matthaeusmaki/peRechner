@@ -4,7 +4,8 @@ food:
 	name:	 	Name der SpeValueise
 	category:	Typ des Essens
 	peValue:	PE Wert der SpeValueise
-	amount:		Menge in mg
+	amount:		Menge
+	measurement:Messwert (z.B. g, Paar etc)
 	
 	categories:
 	sausage		Wurst
@@ -29,14 +30,8 @@ food:
         <category>sausage</category>
         <peValue>3</peValue>
         <amount>150</amount>
+        <measurement>g</measurement>
     </food>   
-    <food>
-        <name>Depreziner</name>
-        <category>sausage</category>
-        <peValue>42</peValue>
-        <amount>1337</amount>
-    </food>
-        
     
 	<!-- Fleisch meat -->    
     <food>
@@ -44,12 +39,14 @@ food:
         <category>meat</category>
         <peValue>3</peValue>
         <amount>150</amount>
+        <measurement>g</measurement>
     </food>
     <food>
         <name>Wild</name>
         <category>meat</category>
         <peValue>4</peValue>
-        <amount>150</amount>            
+        <amount>150</amount>
+        <measurement>g</measurement>   
     </food>
     <!-- <food>
         <name>Schnitzel</name>
@@ -63,7 +60,8 @@ food:
         <name>Fischfilet</name>
         <category>fish</category>
         <peValue>4</peValue>
-        <amount>150</amount>            
+        <amount>150</amount>
+        <measurement>g</measurement>   
     </food>
     
     <!-- Käse cheese -->
@@ -71,25 +69,29 @@ food:
         <name>Brie</name>
         <category>cheese</category>
         <peValue>1</peValue>
-        <amount>50</amount>            
+        <amount>50</amount>
+        <measurement>g</measurement>  
     </food>
     <food>
         <name>Frischkäse</name>
         <category>cheese</category>
         <peValue>1</peValue>
-        <amount>50</amount>            
+        <amount>50</amount>
+        <measurement>g</measurement>  
     </food>
     <food>
         <name>Weichkäse</name>
         <category>cheese</category>
         <peValue>2</peValue>
-        <amount>50</amount>            
+        <amount>50</amount>
+        <measurement>g</measurement>  
     </food>
     <food>
         <name>Gouda</name>
         <category>cheese</category>
         <peValue>3</peValue>
-        <amount>50</amount>            
+        <amount>50</amount>
+        <measurement>g</measurement>  
     </food>
     
     <!-- Milchprodukte milk -->
@@ -97,19 +99,22 @@ food:
         <name>Milch</name>
         <category>milk</category>
         <peValue>2</peValue>
-        <amount>200</amount>            
+        <amount>200</amount>
+        <measurement>ml</measurement>   
     </food>
     <food>
         <name>Joghurt</name>
         <category>milk</category>
         <peValue>2</peValue>
-        <amount>150</amount>            
+        <amount>150</amount>
+        <measurement>g</measurement>
     </food>
     <food>
         <name>Quark</name>
         <category>milk</category>
         <peValue>3</peValue>
-        <amount></amount>            
+        <amount>150</amount>
+        <measurement>g</measurement>            
     </food>
     
     <!-- Fette fat -->
@@ -126,18 +131,21 @@ food:
         <category>pastry</category>
         <peValue>1</peValue>
         <amount>100</amount>
+        <measurement>g</measurement>
     </food>
     <food>
         <name>Brot</name>
         <category>pastry</category>
         <peValue>1</peValue>
-        <amount>100</amount>            
+        <amount>100</amount>
+        <measurement>g</measurement>    
     </food>
     <food>
         <name>Breze</name>
         <category>pastry</category>
         <peValue>1</peValue>
-        <amount>1</amount>            
+        <amount>1</amount>
+        <measurement>g</measurement>  
     </food>
     
     <!-- Gemüse vegetable -->
@@ -146,12 +154,14 @@ food:
         <category>vegetable</category>
         <peValue>1</peValue>
         <amount>200</amount>
+        <measurement>g</measurement>
     </food>    
     <food>
         <name>Grüne Bohnen</name>
         <category>vegetable</category>
         <peValue>0</peValue>
         <amount>100</amount>
+        <measurement>g</measurement>
     </food>    
     
     <!-- Obst fruit -->
@@ -160,41 +170,23 @@ food:
         <category>fruit</category>
         <peValue>0</peValue>
         <amount>100</amount>
+        <measurement>g</measurement>
     </food>
 
-    <food>
-        <name>Kiwi</name>
-        <category>fruit</category>
-        <peValue>42</peValue>
-        <amount>1337</amount>
-    </food>
-    
-    <food>
-        <name>Banane</name>
-        <category>fruit</category>
-        <peValue>42</peValue>
-        <amount>1337</amount>
-    </food>
-
-    <food>
-        <name>Apfel</name>
-        <category>fruit</category>
-        <peValue>42</peValue>
-        <amount>1337</amount>
-    </food>
-    
     <!-- Kuchen/Gebäck cake -->
     <food>
         <name>Obstkuchen</name>
         <category>cake</category>
         <peValue>1</peValue>
-        <amount>120</amount>            
+        <amount>120</amount>
+        <measurement>g</measurement>
     </food>
     <food>
         <name>Käsekuchen</name>
         <category>cake</category>
         <peValue>2</peValue>
-        <amount>120</amount>            
+        <amount>120</amount>
+        <measurement>g</measurement>    
     </food>
     
     <!-- Süßigkeiten candy -->
@@ -202,13 +194,15 @@ food:
         <name>Dunkle Schokolade</name>
         <category>candy</category>
         <peValue>2</peValue>
-        <amount>50</amount>            
+        <amount>50</amount>
+        <measurement>g</measurement>   
     </food>
     <food>
         <name>Milch-Eiscreme</name>
         <category>cake</category>
         <peValue>1</peValue>
-        <amount>60</amount>            
+        <amount>60</amount>
+        <measurement>g</measurement>   
     </food>
     
     <!-- Soßen sauce -->
@@ -216,7 +210,8 @@ food:
         <name>Bratensoße</name>
         <category>sauce</category>
         <peValue>1</peValue>
-        <amount>1</amount>            
+        <amount>3</amount>
+        <measurement>Esslöffel</measurement>  
     </food>
     
     <!-- Sonstiges other -->
@@ -224,19 +219,22 @@ food:
         <name>Hühnerei</name>
         <category>other</category>
         <peValue>2</peValue>
-        <amount>1</amount>            
+        <amount>1</amount>
+        <measurement>Ei</measurement>      
     </food>
     <food>
         <name>Senf</name>
         <category>other</category>
         <peValue>0</peValue>
-        <amount>15</amount>
+        <amount>1</amount>
+        <measurement>Esslöffel</measurement>
     </food>
     <food>
         <name>Backpulver</name>
         <category>other</category>
         <peValue>15</peValue>
-        <amount>1</amount>            
+        <amount>1</amount>
+        <measurement>Packung</measurement>     
     </food>
     
     

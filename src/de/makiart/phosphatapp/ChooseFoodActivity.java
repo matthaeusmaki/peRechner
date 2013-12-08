@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.logic.Food;
 
@@ -76,8 +77,12 @@ public class ChooseFoodActivity extends Activity implements OnItemSelectedListen
 	public void onItemSelected(AdapterView<?> spinner, View arg1, int pos, long id) {
 		selectedFood = listOfFood.get(pos);
 		Log.i("itemselect", "name: " + selectedFood.getName());
-		Log.i("itemselect", "pe: " + selectedFood.getId());
+		Log.i("itemselect", ": " + selectedFood.getId());
 		Log.i("itemselect", "amount: " + selectedFood.getAmount());
+		Log.i("itemselect", "amount: " + selectedFood.getPeValue());
+		
+		((TextView) findViewById(R.id.selectedPeValueId)).setText(String.valueOf(selectedFood.getPeValue()) + " PE");
+		((TextView) findViewById(R.id.selectedAmountId)).setText(String.valueOf(selectedFood.getAmount()) + " " + selectedFood.getMeasurement());
 	}
 
 	@Override

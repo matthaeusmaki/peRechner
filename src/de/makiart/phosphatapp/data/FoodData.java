@@ -24,6 +24,7 @@ public class FoodData {
 	public static final String PEVALUE_TAG = "peValue";
 	public static final String NAME_TAG = "name";
 	public static final String AMOUNT_TAG = "amount";
+	public static final String MEASUREMENT_TAG = "measurement";
 	public static final String CATEGORY_TAG = "category";
 	
 	public static final String MEATS = "meats";
@@ -76,6 +77,7 @@ public class FoodData {
 		parser.require(XmlPullParser.START_TAG, null, FOOD_TAG);
 	    String name = "";
 	    String category = "";
+	    String measurement = "";
 	    int peValue = 0;
 	    int amount = 0;
 	    while (parser.next() != XmlPullParser.END_TAG) {
@@ -84,56 +86,76 @@ public class FoodData {
 	        }
 	        String tag = parser.getName();
 	        if (tag.equals(NAME_TAG)) {
-	            name = readName(parser);
+	        	name = readTag(parser, NAME_TAG);
+//	            name = readName(parser);
 	        } else if (tag.equals(PEVALUE_TAG)) {
-	            peValue = readPeValue(parser);
+	        	peValue = readIntegerTag(parser, PEVALUE_TAG);
+//	            peValue = readPeValue(parser);
 	        } else if (tag.equals(AMOUNT_TAG)) {
-	            amount = readAmount(parser);
+	        	amount = readIntegerTag(parser, AMOUNT_TAG);
+//	            amount = readAmount(parser);
 	        } else if (tag.equals(CATEGORY_TAG)) {
-	        	category = readCategoty(parser);
+	        	category = readTag(parser, CATEGORY_TAG);
+//	        	category = readCategoty(parser);
+	        } else if (tag.equals(MEASUREMENT_TAG)) {
+	        	measurement = readTag(parser, MEASUREMENT_TAG);
 	        } else {
 	            skip(parser);
 	        }
 	    }
-	    return new Food(-1, name, category, peValue, amount);
+	    return new Food(-1, name, category, peValue, amount, measurement);
 	}
 	
-	private String readName(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, NAME_TAG);
-		if (parser.next() == XmlPullParser.TEXT) {
-			String name = parser.getText();
-			parser.nextTag();
-			return name;
-		}
-		return "";
+//	private String readName(XmlPullParser parser) throws XmlPullParserException, IOException {
+//		parser.require(XmlPullParser.START_TAG, null, NAME_TAG);
+//		if (parser.next() == XmlPullParser.TEXT) {
+//			String name = parser.getText();
+//			parser.nextTag();
+//			return name;
+//		}
+//		return "";
+//	}
+//	
+//	private int readPeValue(XmlPullParser parser) throws XmlPullParserException, IOException {
+//		parser.require(XmlPullParser.START_TAG, null, PEVALUE_TAG);
+//		if (parser.next() == XmlPullParser.TEXT) {
+//			String peValue = parser.getText();
+//			parser.nextTag();
+//			return Integer.valueOf(peValue);
+//		}
+//		return 0;
+//	}
+//	
+//	private int readAmount(XmlPullParser parser) throws XmlPullParserException, IOException {
+//		parser.require(XmlPullParser.START_TAG, null, AMOUNT_TAG);
+//		if (parser.next() == XmlPullParser.TEXT) {
+//			String amount = parser.getText();
+//			parser.nextTag();
+//			return Integer.valueOf(amount);
+//		}
+//		return 0;
+//	}
+//	
+//	private String readCategoty(XmlPullParser parser) throws XmlPullParserException, IOException {
+//		parser.require(XmlPullParser.START_TAG, null, CATEGORY_TAG);
+//		if (parser.next() == XmlPullParser.TEXT) {
+//			String category = parser.getText();
+//			parser.nextTag();
+//			return category;
+//		}
+//		return "";
+//	}
+	
+	private int readIntegerTag(XmlPullParser parser, String tag) throws NumberFormatException, XmlPullParserException, IOException {
+		return Integer.valueOf(readTag(parser, tag));
 	}
 	
-	private int readPeValue(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, PEVALUE_TAG);
+	private String readTag(XmlPullParser parser, String tag) throws XmlPullParserException, IOException {
+		parser.require(XmlPullParser.START_TAG, null, tag);
 		if (parser.next() == XmlPullParser.TEXT) {
-			String peValue = parser.getText();
+			String value = parser.getText();
 			parser.nextTag();
-			return Integer.valueOf(peValue);
-		}
-		return 0;
-	}
-	
-	private int readAmount(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, AMOUNT_TAG);
-		if (parser.next() == XmlPullParser.TEXT) {
-			String amount = parser.getText();
-			parser.nextTag();
-			return Integer.valueOf(amount);
-		}
-		return 0;
-	}
-	
-	private String readCategoty(XmlPullParser parser) throws XmlPullParserException, IOException {
-		parser.require(XmlPullParser.START_TAG, null, CATEGORY_TAG);
-		if (parser.next() == XmlPullParser.TEXT) {
-			String category = parser.getText();
-			parser.nextTag();
-			return category;
+			return value;
 		}
 		return "";
 	}
@@ -193,7 +215,7 @@ public class FoodData {
 	public Food getRandomFood() {
 		Food prototype = selectableFood.get((int) (Math.random() * selectableFood.size()));
 		Log.i("FoodData.getRandromFood()", prototype.getName());
-		return new Food(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount());
+		return new Food(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount(), prototype.getMeasurement());
 	}
 	
 	private void translateCategoryNames() {

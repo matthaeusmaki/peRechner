@@ -60,9 +60,13 @@ public class PhosphatActivity extends Activity {
 				foodList.add(food);
 				foodViewList.addView(createMealListItem(food));
 				calculatePe();
-				((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(phosphatCount));
+				this.writePE();
 			}
 		}
+	}
+	
+	private void writePE() {
+		((TextView) findViewById(R.id.peTextId)).setText("PE: " + String.valueOf(phosphatCount));
 	}
 
 	/**
@@ -93,7 +97,7 @@ public class PhosphatActivity extends Activity {
 		}
 		calculatePe();
 		foodViewList.removeView((View) view.getParent());
-		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(phosphatCount));
+		this.writePE();
 	}
 	
 	private LinearLayout createMealListItem(Food addedFood) {
