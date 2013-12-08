@@ -123,18 +123,21 @@ public class PhosphatActivity extends Activity {
 		return mealListItem;
 	}
 	
+	/**
+	 * Berechnen der Phosphateinheiten.
+	 * Drei 0 PE Werte ergeben 1 PE.
+	 */
 	private void calculatePe() {
 		phosphatCount = 0;
-		boolean isOnePeZero = false;
+		int peZeroCount = 0;
 		for (Food f : foodList) {
 			int value = f.getPeValue();
-			if (isOnePeZero && value == 0) {
-				phosphatCount += 1;
-				isOnePeZero = false;
-			} else {
-				phosphatCount += value;
-				if (value == 0) {
-					isOnePeZero = true;
+			phosphatCount += value;
+			if (value == 0) {
+				peZeroCount++;
+				if (peZeroCount >= 3) {
+					phosphatCount++;
+					peZeroCount = 0;
 				}
 			}
 		}
