@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     android:background="#dddddd"
     tools:context=".ChooseMealActivity" >
-
-    <Spinner
+    
+     <Spinner
 		android:id="@+id/spinner"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content" />
@@ -48,5 +48,5 @@
         android:layout_marginRight="49dp"
         android:text="@string/buttonSave"
         android:onClick="save" />
-
+    
 </RelativeLayout>
