@@ -47,7 +47,6 @@ public class PhosphatActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent in) {
 		super.onActivityResult(requestCode, resultCode, in);
-
 		if (requestCode == 1) {
 			if (resultCode == RESULT_OK) {
 				Food food = new Food();

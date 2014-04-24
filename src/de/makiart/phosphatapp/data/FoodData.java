@@ -196,4 +196,13 @@ public class FoodData {
 			}
 		}
 	}
+	
+	public List<Food> getFoodOfCategory(String categorString) {
+		// TODO: lade korrektes Essen abhängig von Kategorie
+		List<Food> list = new ArrayList<Food>();
+		list.add(getRandomFood());
+		list.add(getRandomFood());
+		list.add(getRandomFood());
+		return list;
+	}
 }

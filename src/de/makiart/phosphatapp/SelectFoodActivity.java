@@ -6,9 +6,6 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import de.makiart.phosphatapp.R;
-import de.makiart.phosphatapp.R.id;
-import de.makiart.phosphatapp.R.layout;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 
@@ -29,7 +26,7 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 		actionBar.setDisplayShowTitleEnabled(false);
 		actionBar.setDisplayShowHomeEnabled(false);
 		viewPager = (ViewPager) findViewById(R.id.pager);
-		pagerAdapter = new TabsPagerAdapter(getSupportFragmentManager(), foodData.getListOfCategories().size());
+		pagerAdapter = new TabsPagerAdapter(getSupportFragmentManager(), foodData);
 		
 		viewPager.setAdapter(pagerAdapter);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -53,7 +50,6 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 			}
 		});
 	}
-	
 
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {
