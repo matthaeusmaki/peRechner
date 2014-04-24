@@ -13,7 +13,7 @@
     
     <string name="peResult">PE:</string>
     
-    <string name="title_activity_choose_meal">ChooseFoodActivity</string>
+    <string name="title_activity_choose_meal">Essen auswählen</string>
 
     <string name="sausages">Wurst</string>
     <string name="meats">Fleisch</string>

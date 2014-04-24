@@ -59,7 +59,6 @@ public class ChooseFoodActivity extends Activity implements OnItemSelectedListen
 	
 	public void save(View view) {
 		// save configuration
-//		Food food = new FoodData(getAssets(), getResources()).getRandomFood();
 		Intent intent = new Intent(ChooseFoodActivity.this, PhosphatActivity.class);
 		intent.putExtra(Food.FOOD_ATTRIBUTE_ID, getIntent().getIntExtra("id", -1));
 		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
@@ -68,18 +67,14 @@ public class ChooseFoodActivity extends Activity implements OnItemSelectedListen
 		setResult(RESULT_OK, intent);
 		finish();
 	}
-	
-	public void randomFood(View view) {
-		// generate random food
-	}
-	
+
 	@Override
 	public void onItemSelected(AdapterView<?> spinner, View arg1, int pos, long id) {
 		selectedFood = listOfFood.get(pos);
 		Log.i("itemselect", "name: " + selectedFood.getName());
 		Log.i("itemselect", ": " + selectedFood.getId());
 		Log.i("itemselect", "amount: " + selectedFood.getAmount());
-		Log.i("itemselect", "amount: " + selectedFood.getPeValue());
+		Log.i("itemselect", "pe: " + selectedFood.getPeValue());
 		
 		((TextView) findViewById(R.id.selectedPeValueId)).setText(String.valueOf(selectedFood.getPeValue()) + " PE");
 		((TextView) findViewById(R.id.selectedAmountId)).setText(String.valueOf(selectedFood.getAmount()) + " " + selectedFood.getMeasurement());

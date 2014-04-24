@@ -27,11 +27,11 @@ public class FoodData {
 	public static final String MEASUREMENT_TAG = "measurement";
 	public static final String CATEGORY_TAG = "category";
 	
-	public static final String MEATS = "meats";
-	public static final String SAUSAGES = "sausages";
-	public static final String PASTRIES = "pastries";
-	public static final String VEGETABLES = "vegetables";
-	public static final String FRUITS = "fruits";
+	public static final String MEATS = "meat";
+	public static final String SAUSAGES = "sausage";
+	public static final String PASTRIES = "pastrie";
+	public static final String VEGETABLES = "vegetable";
+	public static final String FRUITS = "fruit";
 	public static final String OTHER = "other";
 	
 	
@@ -195,6 +195,5 @@ public class FoodData {
 				foodCategories.add(c);
 			}
 		}
-		
 	}
 }

@@ -18,16 +18,19 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_select_food);
 
-		// Swipeable tabs
+		FoodData foodData = new FoodData(getAssets(), getResources());
+		
 		actionBar = getActionBar();
+		actionBar.setDisplayShowTitleEnabled(false);
+		actionBar.setDisplayShowHomeEnabled(false);
 		viewPager = (ViewPager) findViewById(R.id.pager);
-		pagerAdapter = new TabsPagerAdapter(getSupportFragmentManager());
+		pagerAdapter = new TabsPagerAdapter(getSupportFragmentManager(), foodData.getListOfCategories().size());
 		
 		viewPager.setAdapter(pagerAdapter);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
-		FoodData foodData = new FoodData(getAssets(), getResources());
 		for (String tabName : foodData.getListOfCategories()) {
 			actionBar.addTab(actionBar.newTab().setText(tabName).setTabListener(this));
 		}

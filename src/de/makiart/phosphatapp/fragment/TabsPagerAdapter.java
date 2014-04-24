@@ -6,8 +6,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter  {
 
-	public TabsPagerAdapter(FragmentManager fm) {
+	private int numberOfTabs;
+	
+	public TabsPagerAdapter(FragmentManager fm, int numberOfTabs) {
 		super(fm);
+		this.numberOfTabs = numberOfTabs;
 	}
 
 	@Override
@@ -17,6 +20,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter  {
 
 	@Override
 	public int getCount() {
-		return 3;
+		return numberOfTabs;
 	}
 }

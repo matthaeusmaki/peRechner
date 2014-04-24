@@ -47,8 +47,7 @@ public class PhosphatActivity extends Activity {
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent in) {
 		super.onActivityResult(requestCode, resultCode, in);
-		Log.i("onActivityResult", "asdfasfdasfd");
-		
+
 		if (requestCode == 1) {
 			if (resultCode == RESULT_OK) {
 				Food food = new Food();
@@ -76,6 +75,12 @@ public class PhosphatActivity extends Activity {
 	 */
 	public void addMeal(View view) {
 		Intent intent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
+		intent.putExtra("id", idCount++);
+		this.startActivityForResult(intent, 1);
+	}
+	
+	public void addMealNew(View view) {
+		Intent intent = new Intent(PhosphatActivity.this, SelectFoodActivity.class);
 		intent.putExtra("id", idCount++);
 		this.startActivityForResult(intent, 1);
 	}
