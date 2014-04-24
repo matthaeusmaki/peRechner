@@ -1,13 +1,16 @@
 package de.makiart.phosphatapp;
 
-import de.makiart.phosphatapp.data.FoodData;
-import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 import android.app.ActionBar;
-import android.app.FragmentTransaction;
 import android.app.ActionBar.Tab;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import de.makiart.phosphatapp.R;
+import de.makiart.phosphatapp.R.id;
+import de.makiart.phosphatapp.R.layout;
+import de.makiart.phosphatapp.data.FoodData;
+import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 
 public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener {
 
