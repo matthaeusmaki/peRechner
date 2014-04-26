@@ -8,49 +8,58 @@ food:
 	measurement:Messwert (z.B. g, Paar etc)
 	
 	categories:
-	sausage		Wurst
-	meat		Fleisch
+	sausages		Wurst
+	meats		Fleisch
 	fish		Fisch
 	cheese		Käse
 	milk		Milchprodukte
 	fat			Fette
-	vegetable	Gemüse
-	fruit		Obst
-	pastry		Backwaren
-	cake		Kuchen/Gebäck
-	candy		Süßsigkeiten
+	vegetables	Gemüse
+	fruits		Obst
+	pastries		Backwaren
+	cakes		Kuchen/Gebäck
+	candies		Süßsigkeiten
 	sauce		Soßen
+	drinks		Getränke
 	other		Sonstiges
+	
+	Angezeigt werden die Kategorien:
+	Fleisch (Fleisch, Wurst, Fisch)
+	Obst & Gemüse (Obst, Gemüse)
+	Milchprodukte (Käse, Milch, Fette)
+	Gebäck (Brot, Backwaren, Zucker und Süßigkeiten, Backtriebmittel)
+	Getränke (Getränke)
+	Sonstiges
  -->
 <foodUnits>
     
-    <!-- Wurst sausage -->
+    <!-- Wurst sausages -->
     <food>
         <name>Wiener Würstchen</name>
-        <category>sausage</category>
+        <category>sausages</category>
         <peValue>3</peValue>
         <amount>150</amount>
         <measurement>g</measurement>
     </food>   
     
-	<!-- Fleisch meat -->    
+	<!-- Fleisch meats -->    
     <food>
         <name>Rind</name>
-        <category>meat</category>
+        <category>meats</category>
         <peValue>3</peValue>
         <amount>150</amount>
         <measurement>g</measurement>
     </food>
     <food>
         <name>Wild</name>
-        <category>meat</category>
+        <category>meats</category>
         <peValue>4</peValue>
         <amount>150</amount>
         <measurement>g</measurement>   
     </food>
     <!-- <food>
         <name>Schnitzel</name>
-        <category>meat</category>
+        <category>meats</category>
         <peValue>42</peValue>
         <amount>1337</amount>
     </food> -->
@@ -119,7 +128,7 @@ food:
     
     <!-- Fette fat -->
     <!-- <food>
-        <name>Öl, Butter, MArgarine</name>
+        <name>Öl, Butter, Margarine</name>
         <category>fat</category>
         <peValue>0</peValue>
         <amount>1</amount>            
@@ -128,78 +137,78 @@ food:
     <!-- Backwaren pastries -->
     <food>
         <name>Semmel</name>
-        <category>pastry</category>
+        <category>pastries</category>
         <peValue>1</peValue>
         <amount>100</amount>
         <measurement>g</measurement>
     </food>
     <food>
         <name>Brot</name>
-        <category>pastry</category>
+        <category>pastries</category>
         <peValue>1</peValue>
         <amount>100</amount>
         <measurement>g</measurement>    
     </food>
     <food>
         <name>Breze</name>
-        <category>pastry</category>
+        <category>pastries</category>
         <peValue>1</peValue>
         <amount>1</amount>
         <measurement>g</measurement>  
     </food>
     
-    <!-- Gemüse vegetable -->
+    <!-- Gemüse vegetables -->
     <food>
         <name>Kartoffel</name>
-        <category>vegetable</category>
+        <category>vegetables</category>
         <peValue>1</peValue>
         <amount>200</amount>
         <measurement>g</measurement>
     </food>    
     <food>
         <name>Grüne Bohnen</name>
-        <category>vegetable</category>
+        <category>vegetables</category>
         <peValue>0</peValue>
         <amount>100</amount>
         <measurement>g</measurement>
     </food>    
     
-    <!-- Obst fruit -->
+    <!-- Obst fruits -->
     <food>
         <name>Orange</name>
-        <category>fruit</category>
+        <category>fruits</category>
         <peValue>0</peValue>
         <amount>100</amount>
         <measurement>g</measurement>
     </food>
 
-    <!-- Kuchen/Gebäck cake -->
+    <!-- Kuchen/Gebäck cakes -->
     <food>
         <name>Obstkuchen</name>
-        <category>cake</category>
+        <category>cakes</category>
         <peValue>1</peValue>
         <amount>120</amount>
         <measurement>g</measurement>
     </food>
     <food>
         <name>Käsekuchen</name>
-        <category>cake</category>
+        <category>cakes</category>
         <peValue>2</peValue>
         <amount>120</amount>
         <measurement>g</measurement>    
     </food>
     
-    <!-- Süßigkeiten candy -->
+    <!-- Süßigkeiten candies -->
     <food>
         <name>Dunkle Schokolade</name>
-        <category>candy</category>
+        <category>candies</category>
         <peValue>2</peValue>
         <amount>50</amount>
         <measurement>g</measurement>   
     </food>
     <food>
         <name>Milch-Eiscreme</name>
-        <category>cake</category>
+        <category>cakes</category>
         <peValue>1</peValue>
         <amount>60</amount>
         <measurement>g</measurement>   
