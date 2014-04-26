@@ -17,6 +17,8 @@ import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
 	
+	private static FoodData foodDataInstance;
+	
 	private static final String FOODDATA_PATH = "foodData.xml";
 	
 	public static final String FOODUNITS_TAG = "foodUnits";
@@ -42,7 +44,14 @@ public class FoodData {
 	private AssetManager assets;
 	private Resources resources;
 	
-	public FoodData(AssetManager assets, Resources resources) {
+	public static FoodData getFoodData(AssetManager assets, Resources resources) {
+		if (foodDataInstance == null) {
+			foodDataInstance = new FoodData(assets, resources);
+		}
+		return foodDataInstance;
+	}
+	
+	private FoodData(AssetManager assets, Resources resources) {
 		this.assets = assets;
 		this.resources = resources;
 		loadFoodData();

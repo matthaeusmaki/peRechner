@@ -33,7 +33,7 @@ public class ChooseFoodActivity extends Activity implements OnItemSelectedListen
 		setContentView(R.layout.activity_choose_meal);
 		
 //		spinnerArray.addAll(new FoodData(getAssets(), getResources()).getListOfCategories());
-		FoodData foodData = new FoodData(getAssets(), getResources());
+		FoodData foodData = FoodData.getFoodData(getAssets(), getResources());
 		List<String> spinnerArray = foodData.getListOfFoodStrngs();
 		listOfFood.clear();
 		listOfFood.addAll(foodData.getListOfFood());

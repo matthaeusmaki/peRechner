@@ -20,7 +20,7 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_select_food);
 
-		FoodData foodData = new FoodData(getAssets(), getResources());
+		FoodData foodData = FoodData.getFoodData(getAssets(), getResources());
 		
 		actionBar = getActionBar();
 		actionBar.setDisplayShowTitleEnabled(false);
