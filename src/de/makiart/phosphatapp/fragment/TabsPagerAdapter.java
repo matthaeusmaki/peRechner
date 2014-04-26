@@ -17,7 +17,6 @@ public class TabsPagerAdapter extends FragmentPagerAdapter  {
 	@Override
 	public Fragment getItem(int index) {
 		Fragment newFragment = new FoodChooseFragment();
-		// TODO: hole Liste von Food einer Kategorie
 		((FoodChooseFragment) newFragment).setFoodList(foodData.getFoodOfCategory(foodData.getListOfCategories().get(index)));
 		return newFragment;
 	}

@@ -13,6 +13,7 @@ import android.content.res.Resources;
 import android.util.Log;
 import android.util.Xml;
 import de.makiart.phosphatapp.R;
+import de.makiart.phosphatapp.logic.Category;
 import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
@@ -29,12 +30,12 @@ public class FoodData {
 	public static final String MEASUREMENT_TAG = "measurement";
 	public static final String CATEGORY_TAG = "category";
 	
-	public static final String MEATS = "meats";
-	public static final String SAUSAGES = "sausages";
-	public static final String PASTRIES = "pastries";
-	public static final String VEGETABLES = "vegetables";
-	public static final String FRUITS = "fruits";
-	public static final String OTHER = "other";
+	public static final String CATEGORY_MEATS = "meats";
+	public static final String CATEGORY_SAUSAGES = "sausages";
+	public static final String CATEGORY_PASTRIES = "pastries";
+	public static final String CATEGORY_VEGETABLES = "vegetables";
+	public static final String CATEGORY_FRUITS = "fruits";
+	public static final String CATEGORY_OTHER = "other";
 	
 	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
@@ -52,7 +53,6 @@ public class FoodData {
 	private FoodData(AssetManager assets, Resources resources) {
 		this.resources = resources;
 		loadFoodData(assets);
-		translateCategoryNames();
 	}
 	
 	private void loadFoodData(AssetManager assets) {
@@ -99,7 +99,14 @@ public class FoodData {
 	        } else if (tag.equals(AMOUNT_TAG)) {
 	        	food.setAmount(parseIntegerTag(parser, AMOUNT_TAG));
 	        } else if (tag.equals(CATEGORY_TAG)) {
-	        	food.setCategory(parseTag(parser, CATEGORY_TAG));
+	        	String name = parseTag(parser, CATEGORY_TAG);
+	        	Category cat = new Category(name, translateCategoryName(name));
+	        	food.setCategory(cat);
+
+	    		if (!foodCategories.contains(cat.getDisplayName())) {
+	    			foodCategories.add(cat.getDisplayName());
+	    		}
+	        	
 	        } else if (tag.equals(MEASUREMENT_TAG)) {
 	        	food.setMeasurement(parseTag(parser, MEASUREMENT_TAG));
 	        } else {
@@ -161,10 +168,10 @@ public class FoodData {
 		return selectableFood;
 	}
 	
-	public List<Food> ListOfFoodByCaterie(String category) {
+	public List<Food> getFoodOfCategory(String category) {
 		ArrayList<Food> ret = new ArrayList<Food>();
 		for (Food food : selectableFood) {
-			if (food.getCategory().equals(category)) {
+			if (food.getCategory().getDisplayName().equals(category)) {
 				ret.add(food);
 			}
 		}
@@ -181,35 +188,21 @@ public class FoodData {
 		return new Food(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount(), prototype.getMeasurement());
 	}
 	
-	private void translateCategoryNames() {
-		for (Food food : selectableFood) {
-			String c = food.getCategory();
-			if (c.equals(SAUSAGES)) {
-				c = this.resources.getString(R.string.sausages);
-			} else if (c.equals(MEATS)) {
-				c = this.resources.getString(R.string.meats);
-			} else if (c.equals(VEGETABLES)) {
-				c = this.resources.getString(R.string.vegetables);
-			} else if (c.equals(PASTRIES)) {
-				c = this.resources.getString(R.string.pastries);
-			} else if (c.equals(FRUITS)) {
-				c = this.resources.getString(R.string.fruits);
-			} else if (c.equals(OTHER)) {
-				c = this.resources.getString(R.string.other);
-			}
-				
-			if (!foodCategories.contains(c)) {
-				foodCategories.add(c);
-			}
+	private String translateCategoryName(String name) {
+		if (name.equals(CATEGORY_SAUSAGES)) {
+			name = this.resources.getString(R.string.sausages);
+		} else if (name.equals(CATEGORY_MEATS)) {
+			name = this.resources.getString(R.string.meats);
+		} else if (name.equals(CATEGORY_VEGETABLES)) {
+			name = this.resources.getString(R.string.vegetables);
+		} else if (name.equals(CATEGORY_PASTRIES)) {
+			name = this.resources.getString(R.string.pastries);
+		} else if (name.equals(CATEGORY_FRUITS)) {
+			name = this.resources.getString(R.string.fruits);
+		} else if (name.equals(CATEGORY_OTHER)) {
+			name = this.resources.getString(R.string.other);
 		}
-	}
-	
-	public List<Food> getFoodOfCategory(String categorString) {
-		// TODO: lade korrektes Essen abhängig von Kategorie
-		List<Food> list = new ArrayList<Food>();
-		list.add(getRandomFood());
-		list.add(getRandomFood());
-		list.add(getRandomFood());
-		return list;
+		
+		return name;
 	}
 }

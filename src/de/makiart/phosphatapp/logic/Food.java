@@ -3,11 +3,13 @@ package de.makiart.phosphatapp.logic;
 public class Food {
 
 	private int id;
-	private String name;
-	private String category;
 	private int peValue;
 	private int amount;
+	
+	private String name;
 	private String measurement;
+	
+	private Category category;
 	
 	public static final String FOOD_ATTRIBUTE_ID = "id";
 	public static final String FOOD_ATTRIBUTE_NAME = "name";
@@ -21,7 +23,7 @@ public class Food {
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(int id, String name, String category, int peValue, int amount, String measurement) {
+	public Food(int id, String name, Category category, int peValue, int amount, String measurement) {
 		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
@@ -44,7 +46,7 @@ public class Food {
 		return (name != null && !name.isEmpty()
 				&& peValue >= 0
 				&& amount >= 0
-				&& category != null && !category.isEmpty()
+				&& category != null && category.getName() != null && !category.getName().isEmpty()
 				&& measurement != null && !measurement.isEmpty());
 	}
 	
@@ -118,7 +120,7 @@ public class Food {
 	 * Gibt Essens Kategorie dieser Speise zurück
 	 * @return
 	 */
-	public String getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
@@ -142,7 +144,7 @@ public class Food {
 	 * Setzt Essenskategory dieser Speise
 	 * @param category
 	 */
-	public void setCategory(String category) {
+	public void setCategory(Category category) {
 		this.category = category;
 	}
 }
