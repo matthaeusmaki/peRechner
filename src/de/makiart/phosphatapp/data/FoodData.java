@@ -87,33 +87,39 @@ public class FoodData {
 
 		Food food = new Food();
 	    food.setId(-1);
-	    while (parser.next() != XmlPullParser.END_TAG) {
-	        if (parser.getEventType() != XmlPullParser.START_TAG) {
-	            continue;
-	        }
-	        String tag = parser.getName();
-	        if (tag.equals(NAME_TAG)) {
-	        	food.setName(parseTag(parser, NAME_TAG));
-	        } else if (tag.equals(PEVALUE_TAG)) {
-	        	food.setPeValue(parseIntegerTag(parser, PEVALUE_TAG));
-	        } else if (tag.equals(AMOUNT_TAG)) {
-	        	food.setAmount(parseIntegerTag(parser, AMOUNT_TAG));
-	        } else if (tag.equals(CATEGORY_TAG)) {
-	        	String name = parseTag(parser, CATEGORY_TAG);
-	        	Category cat = new Category(name, translateCategoryName(name));
-	        	food.setCategory(cat);
-
-	    		if (!foodCategories.contains(cat.getDisplayName())) {
-	    			foodCategories.add(cat.getDisplayName());
+	    
+	    try {
+	    	while (parser.next() != XmlPullParser.END_TAG) {
+	    		if (parser.getEventType() != XmlPullParser.START_TAG) {
+	    			continue;
 	    		}
-	        	
-	        } else if (tag.equals(MEASUREMENT_TAG)) {
-	        	food.setMeasurement(parseTag(parser, MEASUREMENT_TAG));
-	        } else {
-	            skip(parser);
-	        }
-	    }
-	    return (food.isValidFood() ? food : null);
+	    		String tag = parser.getName();
+	    		if (tag.equals(NAME_TAG)) {
+	    			food.setName(parseTag(parser, NAME_TAG));
+	    		} else if (tag.equals(PEVALUE_TAG)) {
+	    			food.setPeValue(parseIntegerTag(parser, PEVALUE_TAG));
+	    		} else if (tag.equals(AMOUNT_TAG)) {
+	    			food.setAmount(parseIntegerTag(parser, AMOUNT_TAG));
+	    		} else if (tag.equals(CATEGORY_TAG)) {
+	    			String name = parseTag(parser, CATEGORY_TAG);
+	    			Category cat = new Category(name, translateCategoryName(name));
+	    			food.setCategory(cat);
+	    			
+	    			if (!foodCategories.contains(cat.getDisplayName())) {
+	    				foodCategories.add(cat.getDisplayName());
+	    			}
+	    			
+	    		} else if (tag.equals(MEASUREMENT_TAG)) {
+	    			food.setMeasurement(parseTag(parser, MEASUREMENT_TAG));
+	    		} else {
+	    			skip(parser);
+	    		}
+	    	}
+	    	return (food.isValidFood() ? food : null);
+		} catch (Exception e) {
+			Log.w("readFood", "Fehler beim Auslesen der Speisen!");
+			return null;
+		}
 	}
 		
 	private int parseIntegerTag(XmlPullParser parser, String tag) throws NumberFormatException, XmlPullParserException, IOException {
