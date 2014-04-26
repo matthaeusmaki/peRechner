@@ -35,6 +35,20 @@ public class Food {
 	}
 
 	/**
+	 * Gibt <code>true</code> zurück, wenn die Speise plausible Werte besitzt.
+	 * Plausibel bedeutet hierbei, dass die Speise einen Namen besitzt, einen PE-Wert,
+	 * eine Kategorie, eine Menge und einen Maßeinheit
+	 * @return
+	 */
+	public boolean isValidFood() {
+		return (name != null && !name.isEmpty()
+				&& peValue >= 0
+				&& amount >= 0
+				&& category != null && !category.isEmpty()
+				&& measurement != null && !measurement.isEmpty());
+	}
+	
+	/**
 	 * Gibt die id der selektierten Nahrung zurück
 	 * @return
 	 */

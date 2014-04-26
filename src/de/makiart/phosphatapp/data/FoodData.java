@@ -36,12 +36,10 @@ public class FoodData {
 	public static final String FRUITS = "fruits";
 	public static final String OTHER = "other";
 	
-	
 	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
 	private List<String> foodCategories = new ArrayList<String>();
 	
-	private AssetManager assets;
 	private Resources resources;
 	
 	public static FoodData getFoodData(AssetManager assets, Resources resources) {
@@ -52,15 +50,14 @@ public class FoodData {
 	}
 	
 	private FoodData(AssetManager assets, Resources resources) {
-		this.assets = assets;
 		this.resources = resources;
-		loadFoodData();
+		loadFoodData(assets);
 		translateCategoryNames();
 	}
 	
-	private void loadFoodData() {
+	private void loadFoodData(AssetManager assets) {
 		try {
-			InputStream in = this.assets.open(FOODDATA_PATH);
+			InputStream in = assets.open(FOODDATA_PATH);
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
             parser.setInput(in, null);
@@ -72,7 +69,10 @@ public class FoodData {
             	}
             	String name = parser.getName();
             	if (name.equals(FOOD_TAG)) {
-            		selectableFood.add(readFood(parser));
+            		Food food = readFood(parser);
+            		if (food != null) {
+            			selectableFood.add(food);
+            		}
             	}
             }
         } catch (XmlPullParserException e) {
@@ -84,31 +84,29 @@ public class FoodData {
 	
 	private Food readFood(XmlPullParser parser) throws XmlPullParserException, IOException {
 		parser.require(XmlPullParser.START_TAG, null, FOOD_TAG);
-	    String name = "";
-	    String category = "";
-	    String measurement = "";
-	    int peValue = 0;
-	    int amount = 0;
+
+		Food food = new Food();
+	    food.setId(-1);
 	    while (parser.next() != XmlPullParser.END_TAG) {
 	        if (parser.getEventType() != XmlPullParser.START_TAG) {
 	            continue;
 	        }
 	        String tag = parser.getName();
 	        if (tag.equals(NAME_TAG)) {
-	        	name = parseTag(parser, NAME_TAG);
+	        	food.setName(parseTag(parser, NAME_TAG));
 	        } else if (tag.equals(PEVALUE_TAG)) {
-	        	peValue = parseIntegerTag(parser, PEVALUE_TAG);
+	        	food.setPeValue(parseIntegerTag(parser, PEVALUE_TAG));
 	        } else if (tag.equals(AMOUNT_TAG)) {
-	        	amount = parseIntegerTag(parser, AMOUNT_TAG);
+	        	food.setAmount(parseIntegerTag(parser, AMOUNT_TAG));
 	        } else if (tag.equals(CATEGORY_TAG)) {
-	        	category = parseTag(parser, CATEGORY_TAG);
+	        	food.setCategory(parseTag(parser, CATEGORY_TAG));
 	        } else if (tag.equals(MEASUREMENT_TAG)) {
-	        	measurement = parseTag(parser, MEASUREMENT_TAG);
+	        	food.setMeasurement(parseTag(parser, MEASUREMENT_TAG));
 	        } else {
 	            skip(parser);
 	        }
 	    }
-	    return new Food(-1, name, category, peValue, amount, measurement);
+	    return (food.isValidFood() ? food : null);
 	}
 		
 	private int parseIntegerTag(XmlPullParser parser, String tag) throws NumberFormatException, XmlPullParserException, IOException {
