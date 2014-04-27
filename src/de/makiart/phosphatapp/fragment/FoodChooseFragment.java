@@ -25,23 +25,28 @@ public class FoodChooseFragment extends Fragment {
 		return view;
 	}
 	
+	private void createFoodView() {
+		for (Food foodItem : foodList) {
+			foodViewList.addView(createFoodItem(foodItem));
+		}
+	}
+	
+	private LinearLayout createFoodItem(Food food) {
+		TextView peTxt = new TextView(getActivity());
+		peTxt.setText(String.valueOf(food.getPeValue()) + " ");
+		
+		TextView nameTxt = new TextView(getActivity());
+		nameTxt.setText(food.getName() + " ");
+
+		LinearLayout mealListItem = new LinearLayout(getActivity());
+		mealListItem.addView(nameTxt);
+		mealListItem.addView(peTxt);
+		
+		return mealListItem;
+	}
+	
 	public void setFoodList(List<Food> foodList) {
 		this.foodList = foodList;
 	}
-	
-	private void createFoodView() {
-		for (Food foodItem : foodList) {
-			TextView peTxt = new TextView(getActivity());
-			peTxt.setText(String.valueOf(foodItem.getPeValue()) + " ");
-			
-			TextView nameTxt = new TextView(getActivity());
-			nameTxt.setText(foodItem.getName() + " ");
-			
-			LinearLayout mealListItem = new LinearLayout(getActivity());
-			mealListItem.addView(nameTxt);
-			mealListItem.addView(peTxt);
-			
-			foodViewList.addView(mealListItem);
-		}
-	}
+
 }

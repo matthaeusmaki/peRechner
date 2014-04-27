@@ -6,6 +6,8 @@ import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
+import android.view.View;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 
@@ -62,5 +64,13 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 
 	@Override
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+	}
+
+	public void save(View view) {
+		Log.i("Fragment", "Save");
+	}
+	
+	public void cancel(View view) {
+		Log.i("Fragment", "Cancel");
 	}
 }
