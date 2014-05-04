@@ -36,6 +36,13 @@ public class Food {
 		
 	}
 
+	
+	
+	@Override
+	public String toString() {
+		return name + " " + peValue + " (" + amount + " " + measurement + ")";
+	}
+
 	/**
 	 * Gibt <code>true</code> zurück, wenn die Speise plausible Werte besitzt.
 	 * Plausibel bedeutet hierbei, dass die Speise einen Namen besitzt, einen PE-Wert,

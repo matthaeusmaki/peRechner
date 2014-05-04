@@ -16,8 +16,8 @@ public class TabsPagerAdapter extends FragmentPagerAdapter  {
 
 	@Override
 	public Fragment getItem(int index) {
-		Fragment newFragment = new FoodChooseFragment();
-		((FoodChooseFragment) newFragment).setFoodList(foodData.getFoodOfCategory(foodData.getListOfCategories().get(index)));
+		Fragment newFragment = new SelectFoodFragment();
+		((SelectFoodFragment) newFragment).setFoodList(foodData.getFoodOfCategory(foodData.getListOfCategories().get(index)));
 		return newFragment;
 	}
 
