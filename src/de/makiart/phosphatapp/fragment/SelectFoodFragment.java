@@ -25,7 +25,7 @@ public class SelectFoodFragment extends Fragment implements OnItemClickListener 
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_choose_food, container, false);
+		View view = inflater.inflate(R.layout.fragment_select_food, container, false);
 		
 		ListAdapter adapter = new ArrayAdapter<Food>(view.getContext(), android.R.layout.simple_list_item_1, foodList);
 		ListView listView = (ListView) view.findViewById(R.id.categoryMealListId);

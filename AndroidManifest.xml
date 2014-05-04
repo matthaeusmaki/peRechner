@@ -22,10 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="de.makiart.phosphatapp.ChooseFoodActivity"
-            android:label="@string/title_activity_choose_meal" >
-        </activity>
-        <activity
             android:name="de.makiart.phosphatapp.SelectFoodActivity"
             android:label="@string/title_activity_choose_meal">
         </activity>

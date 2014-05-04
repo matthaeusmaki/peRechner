@@ -73,12 +73,6 @@ public class PhosphatActivity extends Activity {
 	 * @param view
 	 */
 	public void addMeal(View view) {
-		Intent intent = new Intent(PhosphatActivity.this, ChooseFoodActivity.class);
-		intent.putExtra("id", idCount++);
-		this.startActivityForResult(intent, 1);
-	}
-	
-	public void addMealNew(View view) {
 		Intent intent = new Intent(PhosphatActivity.this, SelectFoodActivity.class);
 		intent.putExtra("id", idCount++);
 		this.startActivityForResult(intent, 1);
