@@ -15,11 +15,11 @@
     
     <string name="title_activity_choose_meal">Essen auswählen</string>
 
-    <string name="sausages">Wurst</string>
+    <string name="milk">Milchprodukte</string>
     <string name="meats">Fleisch</string>
-    <string name="vegetables">Gemüse</string>
+    <string name="vegetables">Obst &amp; Gemüse</string>
     <string name="pastries">Backwaren</string>
-    <string name="fruits">Obst</string>
+    <string name="drinks">Getränke</string>
     <string name="other">Sonstiges</string>
     
     <string name="food_spinner_prompt">Essen auswählen</string>

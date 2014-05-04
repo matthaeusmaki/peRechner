@@ -31,10 +31,10 @@ public class FoodData {
 	public static final String CATEGORY_TAG = "category";
 	
 	public static final String CATEGORY_MEATS = "meats";
-	public static final String CATEGORY_SAUSAGES = "sausages";
+	public static final String CATEGORY_MILK = "milk";
 	public static final String CATEGORY_PASTRIES = "pastries";
 	public static final String CATEGORY_VEGETABLES = "vegetables";
-	public static final String CATEGORY_FRUITS = "fruits";
+	public static final String CATEGORY_DRINKS = "drinks";
 	public static final String CATEGORY_OTHER = "other";
 	
 	private int idCount = 0;
@@ -195,16 +195,16 @@ public class FoodData {
 	}
 	
 	private String translateCategoryName(String name) {
-		if (name.equals(CATEGORY_SAUSAGES)) {
-			name = this.resources.getString(R.string.sausages);
-		} else if (name.equals(CATEGORY_MEATS)) {
+		if (name.equals(CATEGORY_MEATS)) {
 			name = this.resources.getString(R.string.meats);
+		} else if (name.equals(CATEGORY_MILK)) {
+			name = this.resources.getString(R.string.milk);
 		} else if (name.equals(CATEGORY_VEGETABLES)) {
 			name = this.resources.getString(R.string.vegetables);
 		} else if (name.equals(CATEGORY_PASTRIES)) {
 			name = this.resources.getString(R.string.pastries);
-		} else if (name.equals(CATEGORY_FRUITS)) {
-			name = this.resources.getString(R.string.fruits);
+		} else if (name.equals(CATEGORY_DRINKS)) {
+			name = this.resources.getString(R.string.drinks);
 		} else if (name.equals(CATEGORY_OTHER)) {
 			name = this.resources.getString(R.string.other);
 		}
