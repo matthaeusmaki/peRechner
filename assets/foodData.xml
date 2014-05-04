@@ -8,7 +8,7 @@ food:
 	measurement:Messwert (z.B. g, Paar etc)
 	
 	categories:
-	sausages		Wurst
+	sausages	Wurst
 	meats		Fleisch
 	fish		Fisch
 	cheese		Käse
@@ -30,6 +30,11 @@ food:
 	Gebäck (Brot, Backwaren, Zucker und Süßigkeiten, Backtriebmittel)
 	Getränke (Getränke)
 	Sonstiges (Soßen, Müsli, Cornflakes, Eier)
+	
+	TODO:
+	<category name="fish">
+		<food name="Forelle" pe="5" amount="250" measurement="g" />
+    </category>
  -->
 <foodUnits>
     
@@ -441,6 +446,139 @@ food:
         <category>fish</category>
         <peValue>4</peValue>
         <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Austern</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Muscheln</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Forelle</name>
+        <category>fish</category>
+        <peValue>5</peValue>
+        <amount>250</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Goldbarsch</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Heilbutt</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Seezunge</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Kabeljau in Dillsoße</name>
+        <category>fish</category>
+        <peValue>5</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Lachsfilet</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Bismarckhering</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Brathering</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Fischstäbchen</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>5</amount>
+        <measurement>Stück</measurement>   
+    </food>
+    <food>
+        <name>Hering in Gelee</name>
+        <category>fish</category>
+        <peValue>2</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Heringsfilet in Tomatencreme</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>200</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Krabbensalat</name>
+        <category>fish</category>
+        <peValue>2</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Lachsersatz in Öl</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Makrele, geräuchert</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Matjesfilet</name>
+        <category>fish</category>
+        <peValue>3</peValue>
+        <amount>150</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Ölsardinen</name>
+        <category>fish</category>
+        <peValue>125</peValue>
+        <amount>5</amount>
+        <measurement>g</measurement>   
+    </food>
+    <food>
+        <name>Thunfisch in Öl</name>
+        <category>fish</category>
+        <peValue>4</peValue>
+        <amount>185</amount>
         <measurement>g</measurement>   
     </food>
     
