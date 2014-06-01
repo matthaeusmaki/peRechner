@@ -6,8 +6,8 @@
     <string name="menu_settings">Settings</string>
     
     <string name="buttonAddMeal">Essen hinzufügen</string>
-    <string name="buttonRemoveMeal">X</string>
-    <string name="buttonRemoveAll">X</string>
+    <string name="buttonRemoveMeal">x</string>
+    <string name="buttonRemoveAll">x</string>
     <string name="buttonCancel">Abbrechen</string>
     <string name="buttonSave">Speichern</string>
     
