@@ -22,39 +22,116 @@ food:
     </category>
  -->
 <foodUnits>
-    <category name="meats">
-		<food name="Wiener Würstchen" pe="3" amount="150" measurement="g" />
-		<food name="Forelle" pe="5" amount="250" measurement="g" />
+	<category name="meats">
+		<food name="Wiener Würstchen" />
 		<food name="Speck" pe="0" amount="50" measurement="g" />
-    </category>
-    
-    <category name="vegetables">
-		<food name="Kartoffel" pe="1" amount="200" measurement="g" />
+		<food name="Corned Beef" pe="1" amount="50" measurement="g" />
+		<food name="Bierschinken" pe="1" amount="1" measurement="g" />
+		<food name="Bierwurst" pe="1" amount="1" measurement="g" />
+		<food name="Blutwurst" pe="1" amount="1" measurement="g" />
+		<food name="Cervelat" pe="1" amount="1" measurement="g" />
+		<food name="Gelbwurst" pe="1" amount="1" measurement="g" />
+		<food name="Göttinger" pe="1" amount="1" measurement="g" />
+		<food name="Kalbfleischwurst" pe="1" amount="1" measurement="g" />
+		<food name="Kalbsleberwurst" pe="1" amount="1" measurement="g" />
+		<food name="Kochsalami" pe="1" amount="1" measurement="g" />
+		<food name="Kochwurst" pe="1" amount="1" measurement="g" />
+		<food name="Krakauer" pe="1" amount="1" measurement="g" />
+		<food name="Presswurst" pe="1" amount="1" measurement="g" />
+		<food name="Leberwurst" pe="1" amount="1" measurement="g" />
+		<food name="Milzwurst" pe="1" amount="1" measurement="g" />
+		<food name="Mortadella" pe="1" amount="1" measurement="g" />
+		<food name="Rotwurst" pe="1" amount="1" measurement="g" />
+		<food name="Schinkenwurst" pe="1" amount="1" measurement="g" />
+		<food name="Salami" pe="1" amount="1" measurement="g" />
+		<food name="Zungenwurst" pe="1" amount="1" measurement="g" />
+		<food name="Schinken" pe="1" amount="1" measurement="g" />
+		<food name="Sülzwurst" pe="1" amount="150" measurement="g" />
+		<food name="Wurstsalat" pe="3" amount="150" measurement="g" />
+		<food name="Fleischsalat mit Mayonnaise" pe="2" amount="150" measurement="g" />
+		<food name="Bockwurst" pe="3" amount="150" measurement="g" />
+		<food name="Bratwurst/Rheinische Bratwurst" pe="3" amount="150" measurement="g" />
+		<food name="Leberkäse" pe="3" amount="150" measurement="g" />
+		<food name="Fleischwurst" pe="3" amount="150" measurement="g" />
+		<food name="Frankfurter Würstchen" pe="3" amount="150" measurement="g" />
+		<food name="Kalbskäse" pe="3" amount="150" measurement="g" />
+		<food name="Lyoner" pe="3" amount="150" measurement="g" />
+		<food name="Fleischkäse" pe="3" amount="150" measurement="g" />
+		<food name="Saumagen" pe="3" amount="150" measurement="g" />
+		<food name="Weißwurst" pe="3" amount="150" measurement="g" />
+		<food name="Wollwurst" pe="3" amount="150" measurement="g" />
+		<food name="Rindfleisch" pe="3" amount="150" measurement="g" />
+		<food name="Rehfleisch" pe="4" amount="150" measurement="g" />
+		<food name="Hase" pe="4" amount="150" measurement="g" />
+		<food name="Hirsch" pe="4" amount="150" measurement="g" />
+		<food name="Kaninchen" pe="4" amount="150" measurement="g" />
+		<food name="Lamm-, Schaf- und Hammelfleisch" pe="3" amount="150" measurement="g" />
+		<food name="Kalbfleisch" pe="3" amount="150" measurement="g" />
+		<food name="Schweinefleisch" pe="3" amount="150" measurement="g" />
+		<food name="Leber" pe="6" amount="1" measurement="g" />
+		<food name="Hirn" pe="6" amount="1" measurement="g" />
+		<food name="Niere" pe="4" amount="1" measurement="g" />
+		<food name="Herz" pe="3" amount="1" measurement="g" />
+		<food name="Lunge" pe="3" amount="1" measurement="g" />
+		<food name="Zunge" pe="3" amount="1" measurement="g" />
+		<food name="Hähnchenkeule" pe="2" amount="150" measurement="g" />
+		<food name="Geflügelleber" pe="4" amount="150" measurement="g" />
+		<food name="Gänsebrust" pe="3" amount="150" measurement="g" />
+		<food name="Hähnchenfleisch" pe="3" amount="150" measurement="g" />
+		<food name="Putenschnitzel" pe="3" amount="150" measurement="g" />
+		<food name="Fischfilet" pe="4" amount="150" measurement="g" />
+		<food name="Austern" pe="4" amount="150" measurement="g" />
+		<food name="Muscheln" pe="4" amount="150" measurement="g" />
+		<food name="Forelle" pe="5" amount="250" measurement="g" />
+		<food name="Goldbarsch" pe="4" amount="150" measurement="g" />
+		<food name="Heilbutt" pe="4" amount="150" measurement="g" />
+		<food name="Seezunge" pe="4" amount="150" measurement="g" />
+		<food name="Kabeljau in Dillsoße" pe="5" amount="150" measurement="g" />
+		<food name="Lachsfilet" pe="4" amount="150" measurement="g" />
+		<food name="Bismarckhering" pe="4" amount="150" measurement="g" />
+		<food name="Brathering" pe="4" amount="150" measurement="g" />
+		<food name="Fischstäbchen" pe="4" amount="5" measurement="Stück" />
+		<food name="Hering in Gelee" pe="2" amount="150" measurement="g" />
+		<food name="Heringsfilet in Tomatencreme" pe="4" amount="200" measurement="g" />
+		<food name="Krabbensalat" pe="2" amount="150" measurement="g" />
+		<food name="Lachsersatz in Öl" pe="4" amount="150" measurement="g" />
+		<food name="Makrele, geräuchert" pe="4" amount="150" measurement="g" />
+		<food name="Matjesfilet" pe="3" amount="150" measurement="g" />
+		<food name="Ölsardinen" pe="125" amount="5" measurement="g" />
+		<food name="Thunfisch in Öl" pe="4" amount="185" measurement="g" />
+	</category>
+	
+	<category name="vegetables">
+		<food name="Kartoffel" />
 		<food name="Grüne Bohnen" pe="0" amount="100" measurement="g" />
 		<food name="Orange" pe="0" amount="100" measurement="g" />
-    </category>
-    
-    <category name="milk">
-		<food name="Brie" pe="1" amount="50" measurement="g" />
+	</category>
+	
+    <category name="pastries">
+		<food name="Semmel" />
+		<food name="Brot" pe="1" amount="100" measurement="g" />
+		<food name="Breze" pe="1" amount="1" measurement="g" />
+		<food name="Obstkuchen" pe="1" amount="120" measurement="g" />
+		<food name="Käsekuchen" pe="2" amount="120" measurement="g" />
+		<food name="Dunkle Schokolade" pe="2" amount="50" measurement="g" />
+		<food name="Milch-Eiscreme" pe="1" amount="60" measurement="g" />
+	</category>
+	
+	<category name="milk">
+		<food name="Brie" />
 		<food name="Frischkäse" pe="1" amount="50" measurement="g" />
 		<food name="Weichkäse" pe="2" amount="50" measurement="g" />
-    </category>
-    
-    <category name="pastries">
-		<food name="Semmel" pe="1" amount="100" measurement="g" />
-		<food name="Weizenmischbrot" pe="1" amount="3" measurement="Scheiben" />
-		<food name="Breze" pe="1" amount="1" measurement="Stück" />
-    </category>
-    
-    <category name="drinks">
-		<food name="Orangensaft" pe="0" amount="200" measurement="ml" />
-		<food name="Bier" pe="1" amount="300" measurement="ml" />
-		<food name="Wasser" pe="0" amount="0" measurement="ml" />
-    </category>
-    
-    <category name="other">
-		<food name="Bratensoße" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Gouda" pe="3" amount="50" measurement="g" />
+		<food name="Milch" pe="2" amount="200" measurement="ml" />
+		<food name="Joghurt" pe="2" amount="150" measurement="g" />
+		<food name="Quark" pe="3" amount="150" measurement="g" />
+	</category>
+	
+	<category name="other">
+		<food name="Bratensoße" />
 		<food name="Hühnerei" pe="2" amount="1" measurement="Ei" />
 		<food name="Senf" pe="0" amount="1" measurement="Esslöffel" />
-    </category>
+		<food name="Backpulver" pe="15" amount="1" measurement="Packung" />
+	</category>
 </foodUnits>
+ 
