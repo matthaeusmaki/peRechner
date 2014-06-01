@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+food:
+	name:	 	Name der SpeValueise
+	category:	Typ des Essens
+	peValue:	PE Wert der SpeValueise
+	amount:		Menge
+	measurement:Messwert (z.B. g, Paar etc)
+	
+	categories:
+	Angezeigt werden die Kategorien:
+	meats		Fleisch (Fleisch, Wurst, Fisch)
+	vegetables	Obst & Gemüse (Obst, Gemüse)
+	milk		Milchprodukte (Käse, Milch, Fette)
+	pastries	Backwaren (Brot, Backwaren, Zucker und Süßigkeiten, Backtriebmittel)
+	drinks		Getränke (Getränke)
+	other		Sonstiges (Soßen, Müsli, Cornflakes, Eier)
+	
+	TODO:
+	<category name="meats">
+		<food name="Forelle" pe="5" amount="250" measurement="g" />
+    </category>
+ -->
+<foodUnits>
+    
+    <!-- Wurst meats -->
+    <category name="meats">
+		<food name="Wiener Würstchen" pe="3" amount="150" measurement="g" />
+		<food name="Forelle" pe="5" amount="250" measurement="g" />
+		<food name="Speck" pe="0" amount="50" measurement="g" />
+    </category>
+    <category name="vegetables">
+		<food name="Kartoffel" pe="1" amount="200" measurement="g" />
+		<food name="Grüne Bohnen" pe="0" amount="100" measurement="g" />
+		<food name="Orange" pe="0" amount="100" measurement="g" />
+    </category>
+    <category name="milk">
+		<food name="Brie" pe="1" amount="50" measurement="g" />
+		<food name="Frischkäse" pe="1" amount="50" measurement="g" />
+		<food name="Weichkäse" pe="2" amount="50" measurement="g" />
+    </category>
+    <category name="pastries">
+		<food name="Semmel" pe="1" amount="100" measurement="g" />
+		<food name="Weizenmischbrot" pe="1" amount="3" measurement="Scheiben" />
+		<food name="Breze" pe="1" amount="1" measurement="Stück" />
+    </category>
+    <category name="drinks">
+		<food name="Orangensaft" pe="0" amount="200" measurement="ml" />
+		<food name="Bier" pe="1" amount="300" measurement="ml" />
+		<food name="Wasser" pe="0" amount="0" measurement="ml" />
+    </category>
+    <category name="other">
+		<food name="Bratensoße" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Hühnerei" pe="2" amount="1" measurement="Ei" />
+		<food name="Senf" pe="0" amount="1" measurement="Esslöffel" />
+    </category>
+    
+</foodUnits>
