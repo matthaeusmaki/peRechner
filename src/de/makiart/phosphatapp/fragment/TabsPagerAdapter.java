@@ -17,12 +17,12 @@ public class TabsPagerAdapter extends FragmentPagerAdapter  {
 	@Override
 	public Fragment getItem(int index) {
 		Fragment newFragment = new SelectFoodFragment();
-		((SelectFoodFragment) newFragment).setFoodList(foodData.getFoodOfCategory(foodData.getListOfCategories().get(index)));
+		((SelectFoodFragment) newFragment).setFoodList(foodData.getFoodOfCategory(foodData.getListOfCategoriesAsStrings().get(index)));
 		return newFragment;
 	}
 
 	@Override
 	public int getCount() {
-		return foodData.getListOfCategories().size();
+		return foodData.getListOfCategoriesAsStrings().size();
 	}
 }

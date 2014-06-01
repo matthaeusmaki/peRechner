@@ -3,7 +3,6 @@ package de.makiart.phosphatapp.data;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -17,20 +16,19 @@ import de.makiart.phosphatapp.R;
 import de.makiart.phosphatapp.logic.Category;
 import de.makiart.phosphatapp.logic.Food;
 
-public class FoodData {
+public class FoodDataOld {
 	
-	private static FoodData foodDataInstance;
+	private static FoodDataOld foodDataInstance;
 	
 	private static final String FOODDATA_PATH = "foodData.xml";
 	
 	public static final String FOODUNITS_TAG = "foodUnits";
-	public static final String CATEGORY_TAG = "category";
 	public static final String FOOD_TAG = "food";
-	
-	public static final String PEVALUE_ATTRIBUTE = "peValue";
-	public static final String NAME_ATTRIBUTE = "name";
-	public static final String AMOUNT_ATTRIBUTE = "amount";
-	public static final String MEASUREMENT_ATTRIBUTE = "measurement";
+	public static final String PEVALUE_TAG = "peValue";
+	public static final String NAME_TAG = "name";
+	public static final String AMOUNT_TAG = "amount";
+	public static final String MEASUREMENT_TAG = "measurement";
+	public static final String CATEGORY_TAG = "category";
 	
 	public static final String CATEGORY_MEATS = "meats";
 	public static final String CATEGORY_MILK = "milk";
@@ -41,19 +39,18 @@ public class FoodData {
 	
 	private int idCount = 0;
 	private List<Food> selectableFood = new ArrayList<Food>();
-	private List<Category> foodCategories = new ArrayList<Category>();
-	private List<String> foodCategoriesAsStrings = new ArrayList<String>();
+	private List<String> foodCategories = new ArrayList<String>();
 	
 	private Resources resources;
 	
-	public static FoodData getFoodData(AssetManager assets, Resources resources) {
+	public static FoodDataOld getFoodData(AssetManager assets, Resources resources) {
 		if (foodDataInstance == null) {
-			foodDataInstance = new FoodData(assets, resources);
+			foodDataInstance = new FoodDataOld(assets, resources);
 		}
 		return foodDataInstance;
 	}
 	
-	private FoodData(AssetManager assets, Resources resources) {
+	private FoodDataOld(AssetManager assets, Resources resources) {
 		this.resources = resources;
 		loadFoodData(assets);
 	}
@@ -71,8 +68,11 @@ public class FoodData {
             		continue;
             	}
             	String name = parser.getName();
-            	if (name.equals(CATEGORY_TAG)) {
-            		readCategory(parser);
+            	if (name.equals(FOOD_TAG)) {
+            		Food food = readFood(parser);
+            		if (food != null) {
+            			selectableFood.add(food);
+            		}
             	}
             }
         } catch (XmlPullParserException e) {
@@ -82,45 +82,75 @@ public class FoodData {
 		}		
 	}
 	
-	private void readCategory(XmlPullParser parser) {
-		try {
-			String catName = parser.getAttributeValue(0);
-			Category cat = new Category(catName, translateCategoryName(catName));
-			
-			foodCategories.add(cat);
-			foodCategoriesAsStrings.add(cat.getDisplayName());
-			
-			while (parser.next() != XmlPullParser.END_TAG) {
-				if (parser.getEventType() != XmlPullParser.START_TAG) {
+	private Food readFood(XmlPullParser parser) throws XmlPullParserException, IOException {
+		parser.require(XmlPullParser.START_TAG, null, FOOD_TAG);
+
+		Food food = new Food();
+	    food.setId(-1);
+	    
+	    try {
+	    	while (parser.next() != XmlPullParser.END_TAG) {
+	    		if (parser.getEventType() != XmlPullParser.START_TAG) {
 	    			continue;
 	    		}
-				String name = parser.getName();
-				if (name.equals(FOOD_TAG)) {
-            		readFood(parser, cat);
-            	}
-				parser.nextTag();
-			}
-			
+	    		String tag = parser.getName();
+	    		if (tag.equals(NAME_TAG)) {
+	    			food.setName(parseTag(parser, NAME_TAG));
+	    		} else if (tag.equals(PEVALUE_TAG)) {
+	    			food.setPeValue(parseIntegerTag(parser, PEVALUE_TAG));
+	    		} else if (tag.equals(AMOUNT_TAG)) {
+	    			food.setAmount(parseIntegerTag(parser, AMOUNT_TAG));
+	    		} else if (tag.equals(CATEGORY_TAG)) {
+	    			String name = parseTag(parser, CATEGORY_TAG);
+	    			Category cat = new Category(name, translateCategoryName(name));
+	    			food.setCategory(cat);
+	    			
+	    			if (!foodCategories.contains(cat.getDisplayName())) {
+	    				foodCategories.add(cat.getDisplayName());
+	    			}
+	    			
+	    		} else if (tag.equals(MEASUREMENT_TAG)) {
+	    			food.setMeasurement(parseTag(parser, MEASUREMENT_TAG));
+	    		} else {
+	    			skip(parser);
+	    		}
+	    	}
+	    	return (food.isValidFood() ? food : null);
 		} catch (Exception e) {
-			Log.w("readCategory", "Fehler beim Auslesen der Kategorie!");
+			Log.w("readFood", "Fehler beim Auslesen der Speisen!");
+			return null;
 		}
 	}
+		
+	private int parseIntegerTag(XmlPullParser parser, String tag) throws NumberFormatException, XmlPullParserException, IOException {
+		return Integer.valueOf(parseTag(parser, tag));
+	}
 	
-	private void readFood(XmlPullParser parser, Category category) {
-		try {
-			Food food = new Food();
-			food.setId(-1);
-			
-			food.setName(parser.getAttributeValue(0));
-			food.setPeValue(Integer.valueOf(parser.getAttributeValue(1)));
-			food.setAmount(Integer.valueOf(parser.getAttributeValue(2)));
-			food.setMeasurement(parser.getAttributeValue(3));
-			food.setCategory(category);
-			
-			selectableFood.add(food);
-		} catch (Exception e) {
-			Log.w("readFood", "Fehler beim Auslesen des Essens!");
+	private String parseTag(XmlPullParser parser, String tag) throws XmlPullParserException, IOException {
+		parser.require(XmlPullParser.START_TAG, null, tag);
+		if (parser.next() == XmlPullParser.TEXT) {
+			String value = parser.getText();
+			parser.nextTag();
+			return value;
 		}
+		return "";
+	}
+	
+	private void skip(XmlPullParser parser) throws XmlPullParserException, IOException {
+	   if (parser.getEventType() != XmlPullParser.START_TAG) {
+	       throw new IllegalStateException();
+	   }
+	   int depth = 1;
+	   while (depth != 0) {
+	       switch (parser.next()) {
+	       case XmlPullParser.END_TAG:
+	           depth--;
+	           break;
+	       case XmlPullParser.START_TAG:
+	           depth++;
+	           break;
+	       }
+	   }
 	}
 	
 	public Food getFoodByName(String name) {
@@ -151,15 +181,10 @@ public class FoodData {
 				ret.add(food);
 			}
 		}
-		Collections.sort(ret);
 		return ret;
 	}
 	
-	public List<String> getListOfCategoriesAsStrings() {
-		return foodCategoriesAsStrings;
-	}
-	
-	public List<Category> getListOfCategories() {
+	public List<String> getListOfCategories() {
 		return foodCategories;
 	}
 	

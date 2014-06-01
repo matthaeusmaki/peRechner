@@ -33,7 +33,7 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 		viewPager.setAdapter(pagerAdapter);
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
 		
-		for (String tabName : foodData.getListOfCategories()) {
+		for (String tabName : foodData.getListOfCategoriesAsStrings()) {
 			actionBar.addTab(actionBar.newTab().setText(tabName).setTabListener(this));
 		}
 		

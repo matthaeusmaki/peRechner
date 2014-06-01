@@ -1,6 +1,6 @@
 package de.makiart.phosphatapp.logic;
 
-public class Food {
+public class Food implements Comparable<Food> {
 
 	private int id;
 	private int peValue;
@@ -153,5 +153,19 @@ public class Food {
 	 */
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+
+	@Override
+	public int compareTo(Food another) {
+		if (another.getName() == null && this.getName() == null) {
+			return 0;
+		}
+		if (this.getName() == null) {
+			return 1;
+		}
+		if (another.getName() == null) {
+			return -1;
+		}
+		return this.getName().compareTo(another.getName());
 	}
 }
