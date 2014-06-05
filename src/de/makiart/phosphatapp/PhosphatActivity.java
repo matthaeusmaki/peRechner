@@ -53,8 +53,8 @@ public class PhosphatActivity extends Activity {
 				int foodId = in.getIntExtra(Food.FOOD_ATTRIBUTE_ID, -1);
 				food.setId(foodId > 0 ? foodId : idCount++);
 				food.setName(in.getStringExtra(Food.FOOD_ATTRIBUTE_NAME));
-				food.setPeValue(in.getIntExtra(Food.FOOD_ATTRIBUTE_PEVALUE, 0));
-				food.setAmount(in.getIntExtra(Food.FOOD_ATTRIBUTE_AMOUNT, 0));
+				food.setPeValue(in.getShortExtra(Food.FOOD_ATTRIBUTE_PEVALUE, (short) 0));
+				food.setAmount(in.getShortExtra(Food.FOOD_ATTRIBUTE_AMOUNT, (short) 0));
 				foodList.add(food);
 				foodViewList.addView(createMealListItem(food));
 				calculatePe();

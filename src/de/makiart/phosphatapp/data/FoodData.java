@@ -59,6 +59,7 @@ public class FoodData {
 	}
 	
 	private void loadFoodData(AssetManager assets) {
+		long t = System.currentTimeMillis();
 		try {
 			InputStream in = assets.open(FOODDATA_PATH);
             XmlPullParser parser = Xml.newPullParser();
@@ -79,7 +80,8 @@ public class FoodData {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
+		Log.i("loadFoodData", selectableFood.size() + " Lebensmittel in " + (System.currentTimeMillis() - t) + " ms geladen");
 	}
 	
 	private void readCategory(XmlPullParser parser) {
@@ -111,9 +113,11 @@ public class FoodData {
 			Food food = new Food();
 			food.setId(-1);
 			
-			food.setName(parser.getAttributeValue(0));
-			food.setPeValue(Integer.valueOf(parser.getAttributeValue(1)));
-			food.setAmount(Integer.valueOf(parser.getAttributeValue(2)));
+			String name = parser.getAttributeValue(0);
+			
+			food.setName(name);
+			food.setPeValue(Short.valueOf(parser.getAttributeValue(1)));
+			food.setAmount(Short.valueOf(parser.getAttributeValue(2)));
 			food.setMeasurement(parser.getAttributeValue(3));
 			food.setCategory(category);
 			

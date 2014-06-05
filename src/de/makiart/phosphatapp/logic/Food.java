@@ -3,8 +3,8 @@ package de.makiart.phosphatapp.logic;
 public class Food implements Comparable<Food> {
 
 	private int id;
-	private int peValue;
-	private int amount;
+	private short peValue;
+	private short amount;
 	
 	private String name;
 	private String measurement;
@@ -23,7 +23,7 @@ public class Food implements Comparable<Food> {
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(int id, String name, Category category, int peValue, int amount, String measurement) {
+	public Food(int id, String name, Category category, short peValue, short amount, String measurement) {
 		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
@@ -95,7 +95,7 @@ public class Food implements Comparable<Food> {
 	 * Gibt den PE Wert (Phosphateinheit) zurück	
 	 * @return
 	 */
-	public int getPeValue() {
+	public short getPeValue() {
 		return peValue;
 	}
 	
@@ -103,7 +103,7 @@ public class Food implements Comparable<Food> {
 	 * Setzt den PE Wert (Phosphateinheit)
 	 * @param peValue
 	 */
-	public void setPeValue(int peValue) {
+	public void setPeValue(short peValue) {
 		this.peValue = peValue;
 	}
 	
@@ -111,7 +111,7 @@ public class Food implements Comparable<Food> {
 	 * Gibt Mengenangabe in mg zurück
 	 * @return
 	 */
-	public int getAmount() {
+	public short getAmount() {
 		return amount;
 	}
 	
@@ -119,7 +119,7 @@ public class Food implements Comparable<Food> {
 	 * Mengenangabe im mg setzen
 	 * @param amount
 	 */
-	public void setAmount(int amount) {
+	public void setAmount(short amount) {
 		this.amount = amount;
 	}
 	

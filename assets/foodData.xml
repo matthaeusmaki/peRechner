@@ -15,11 +15,6 @@ food:
 	pastries	Backwaren (Brot, Backwaren, Zucker und Süßigkeiten, Backtriebmittel)
 	drinks		Getränke (Getränke)
 	other		Sonstiges (Soßen, Müsli, Cornflakes, Eier)
-	
-	TODO:
-	<category name="meats">
-		<food name="Forelle" pe="5" amount="250" measurement="g" />
-    </category>
  -->
 <foodUnits>
 	<category name="meats">
@@ -102,9 +97,51 @@ food:
 	</category>
 	
 	<category name="vegetables">
-		<food name="Kartoffel" />
+		<food name="Kartoffel" pe="1" amount="200" measurement="g" />
 		<food name="Grüne Bohnen" pe="0" amount="100" measurement="g" />
 		<food name="Orange" pe="0" amount="100" measurement="g" />
+		<food name="Karotten" pe="0" amount="150" measurement="g" />
+		<food name="Rotkraut" pe="0" amount="150" measurement="g" />
+		<food name="Blumenkohl" pe="0" amount="150" measurement="g" />
+		<food name="Sauerkraut" pe="0" amount="150" measurement="g" />
+		<food name="Tomaten" pe="0" amount="150" measurement="g" />
+		<food name="Spargel" pe="0" amount="150" measurement="g" />
+		<food name="Meerrettich" pe="0" amount="150" measurement="g" />
+		<food name="Kräuter" pe="0" amount="150" measurement="g" />
+		<food name="Zwiebel" pe="0" amount="150" measurement="g" />
+		<food name="Knoblauch" pe="0" amount="150" measurement="g" />
+		<food name="Apfel" pe="0" amount="150" measurement="g" />
+		<food name="Birne" pe="0" amount="150" measurement="g" />
+		<food name="Rosinen" pe="0" amount="150" measurement="g" />
+		<food name="Mais" pe="1" amount="150" measurement="g" />
+		<food name="Zuckermais" pe="1" amount="150" measurement="g" />
+		<food name="Erbsen" pe="2" amount="150" measurement="g" />
+		<food name="Bohnen" pe="2" amount="150" measurement="g" />
+		<food name="Linsen" pe="2" amount="150" measurement="g" />
+		<food name="Kidney Bohnen" pe="2" amount="150" measurement="g" />
+		<food name="Champignon" pe="1" amount="150" measurement="g" />
+		<food name="Steinpilze" pe="1" amount="150" measurement="g" />
+		<food name="Pfifferlinge" pe="1" amount="150" measurement="g" />
+		<food name="Bratkartoffeln" pe="1" amount="200" measurement="g" />
+		<food name="Kartoffelsalat" pe="1" amount="200" measurement="g" />
+		<food name="Kartoffelpüree (Sahne + Wasser" pe="1" amount="200" measurement="g" />
+		<food name="Kartoffelpüree (Milch)" pe="1" amount="200" measurement="g" />
+		<food name="Pommes frites" pe="2" amount="200" measurement="g" />
+		<food name="Kartoffelknödel" pe="1" amount="2" measurement="kleine" />
+		<food name="Kartoffelkroketten" pe="2" amount="5" measurement="Stück" />
+		<food name="Naturreis" pe="1" amount="150" measurement="g" />
+		<food name="Reis parboiled" pe="0" amount="150" measurement="g" />
+		<food name="Couscous" pe="0" amount="150" measurement="g" />
+		<food name="Erdnüsse" pe="1" amount="20" measurement="g" />
+		<food name="Haselnusskerne" pe="1" amount="20" measurement="g" />
+		<food name="Mandeln" pe="1" amount="20" measurement="g" />
+		<food name="Pistazien" pe="1" amount="20" measurement="g" />
+		<food name="Walnüsse" pe="1" amount="20" measurement="g" />
+		<food name="Sonnenblumenkerne" pe="2" amount="20" measurement="g" />
+		<food name="Kürbiskerne" pe="2" amount="20" measurement="g" />
+		<food name="Kokosnuss" pe="1" amount="100" measurement="g" />
+		<food name="Maronen" pe="1" amount="100" measurement="g" />
+		<food name="Kastanien" pe="1" amount="100" measurement="g" />
 	</category>
 	
     <category name="pastries">
@@ -118,20 +155,69 @@ food:
 	</category>
 	
 	<category name="milk">
-		<food name="Brie" />
 		<food name="Frischkäse" pe="1" amount="50" measurement="g" />
 		<food name="Weichkäse" pe="2" amount="50" measurement="g" />
 		<food name="Gouda" pe="3" amount="50" measurement="g" />
 		<food name="Milch" pe="2" amount="200" measurement="ml" />
 		<food name="Joghurt" pe="2" amount="150" measurement="g" />
 		<food name="Quark" pe="3" amount="150" measurement="g" />
+		<food name="Mascarpone" pe="1" amount="50" measurement="g" />
+		<food name="Briekäse" pe="1" amount="50" measurement="g" />
+		<food name="Sauermilchkäse" pe="2" amount="50" measurement="g" />
+		<food name="Butterkäse" pe="2" amount="50" measurement="g" />
+		<food name="Camembert" pe="2" amount="50" measurement="g" />
+		<food name="Edelpilzkäse" pe="2" amount="50" measurement="g" />
+		<food name="Feta" pe="2" amount="50" measurement="g" />
+		<food name="Gorgonzola" pe="2" amount="50" measurement="g" />
+		<food name="Limburger" pe="2" amount="50" measurement="g" />
+		<food name="Mozzarella" pe="2" amount="50" measurement="g" />
+		<food name="Roquefortkäse" pe="2" amount="50" measurement="g" />
+		<food name="Romadur" pe="2" amount="50" measurement="g" />
+		<food name="Weißlacker" pe="2" amount="50" measurement="g" />
+		<food name="Ziegenkäse" pe="2" amount="50" measurement="g" />
+		<food name="Appenzeller" pe="3" amount="50" measurement="g" />
+		<food name="Edamer" pe="3" amount="50" measurement="g" />
+		<food name="Chesterkäse" pe="3" amount="50" measurement="g" />
+		<food name="Cheddarkäse" pe="3" amount="50" measurement="g" />
+		<food name="Emmentaler" pe="3" amount="50" measurement="g" />
+		<food name="Gouda" pe="3" amount="50" measurement="g" />
+		<food name="Raclette" pe="3" amount="50" measurement="g" />
+		<food name="Tilsiter" pe="3" amount="50" measurement="g" />
+		<food name="Parmesan" pe="1" amount="10" measurement="g" />
+		<food name="Scheiblette" pe="3" amount="1" measurement="Scheibe" />
+		<food name="Schmelzkäse" pe="6" amount="62,5" measurement="g" />
+		<food name="Molke" pe="1" amount="200" measurement="ml" />
+		<food name="Sojamilch" pe="1" amount="200" measurement="ml" />
+		<food name="Kaba" pe="3" amount="200" measurement="ml" />
+		<food name="Buttermilch" pe="2" amount="200" measurement="ml" />
+		<food name="Sahne süß" pe="2" amount="200" measurement="ml" />
+		<food name="Sahne-Wasser (50ml Sahne 150ml Wasser)" pe="0" amount="200" measurement="ml" />
+		<food name="Schmand" pe="0" amount="30" measurement="g" />
+		<food name="Kaffeesahne süß" pe="0" amount="30" measurement="g" />
+		<food name="Kondensmilch" pe="1" amount="30" measurement="g" />
+		<food name="Kaffeeweißer" pe="1" amount="15" measurement="g" />
+		<food name="Joghurt natur" pe="2" amount="150" measurement="g" />
+		<food name="Fruchtjoghurt" pe="2" amount="150" measurement="g" />
+		<food name="Quark mit Früchten" pe="1" amount="50" measurement="g" />
+		<food name="Quark" pe="5" amount="250" measurement="g" />
+		<food name="Olivenöl" pe="0" amount="0" measurement="g" />
+		<food name="Sonnenblumenöl" pe="0" amount="0" measurement="g" />
+		<food name="Margarine" pe="0" amount="0" measurement="g" />
+		<food name="Butter" pe="0" amount="0" measurement="g" />
 	</category>
 	
 	<category name="other">
 		<food name="Bratensoße" />
 		<food name="Hühnerei" pe="2" amount="1" measurement="Ei" />
+		<food name="Eigelb" pe="2" amount="1" measurement="Ei" />
+		<food name="Eiweiß" pe="0" amount="1" measurement="Ei" />
 		<food name="Senf" pe="0" amount="1" measurement="Esslöffel" />
 		<food name="Backpulver" pe="15" amount="1" measurement="Packung" />
+		<food name="Tofu" pe="1" amount="100" measurement="g" />
+		<food name="Nudeln" pe="1" amount="150" measurement="g" />
+		<food name="Hartweizengrieß" pe="1" amount="150" measurement="g" />
+		<food name="Eierteigwaren" pe="1" amount="150" measurement="g" />
+		<food name="Volkornteigwaren" pe="2" amount="150" measurement="g" />
 	</category>
 </foodUnits>
  
