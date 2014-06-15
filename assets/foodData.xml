@@ -145,15 +145,65 @@ food:
 	</category>
 	
     <category name="pastries">
-		<food name="Semmel" />
-		<food name="Brot" pe="1" amount="100" measurement="g" />
-		<food name="Breze" pe="1" amount="1" measurement="g" />
+		<food name="Semmel" pe="1" amount="2" measurement="Stück" />
+		<food name="Weizenbrötchen" pe="1" amount="2" measurement="Stück" />
+		<food name="Breze" pe="1" amount="1" measurement="Stück" />
+		<food name="Croissant" pe="1" amount="70" measurement="g" />
+		<food name="Knäckebrot" pe="1" amount="2" measurement="Scheiben" />
+		<food name="Vollkornbrötchen" pe="1" amount="1" measurement="Stück" />
+		<food name="Weißbrot" pe="1" amount="3" measurement="Scheiben" />
+		<food name="Weizentoastbrot" pe="1" amount="3" measurement="Scheiben" />
+		<food name="Weizenmischbrot" pe="1" amount="3" measurement="Scheiben" />
+		<food name="Roggenmischbrot" pe="1" amount="3" measurement="Scheiben" />
+		<food name="Vollkornbrot" pe="2" amount="2" measurement="Scheiben" />
+		<food name="Russisch Brot" pe="0" amount="50" measurement="g" />
+		<food name="Butterkeks" pe="1" amount="50" measurement="g" />
+		<food name="Hartkeks" pe="1" amount="50" measurement="g" />
+		<food name="Kokosmakronen" pe="1" amount="50" measurement="g" />
+		<food name="Salzstankgen" pe="1" amount="50" measurement="g" />
+		<food name="Waffelmischung" pe="1" amount="50" measurement="g" />
+		<food name="Käseplätzchen" pe="2" amount="50" measurement="g" />
+		<food name="Müslikekse" pe="2" amount="50" measurement="g" />
 		<food name="Obstkuchen" pe="1" amount="120" measurement="g" />
 		<food name="Käsekuchen" pe="2" amount="120" measurement="g" />
-		<food name="Dunkle Schokolade" pe="2" amount="50" measurement="g" />
-		<food name="Milch-Eiscreme" pe="1" amount="60" measurement="g" />
+		<food name="Krapfen" pe="1" amount="55" measurement="g" />
+		<food name="Biskuitrolle mit Creefüllung" pe="1" amount="70" measurement="g" />
+		<food name="Blätterteig-Gebäck mit Obst" pe="1" amount="70" measurement="g" />
+		<food name="Dresdner Stollen aus Hefeteig" pe="1" amount="70" measurement="g" />
+		<food name="Hefzopf" pe="1" amount="60" measurement="g" />
+		<food name="Butterkuchen" pe="1" amount="70" measurement="g" />
+		<food name="Obstkuchen aus Hefeteig" pe="1" amount="120" measurement="g" />
+		<food name="Obstkuchen aus Mürbteig" pe="1" amount="120" measurement="g" />
+		<food name="Bienenstich" pe="2" amount="120" measurement="g" />
+		<food name="Buttercremetorten" pe="2" amount="120" measurement="g" />
+		<food name="Schwarzwälder Kirschtorte" pe="2" amount="120" measurement="g" />
+		<food name="Rührkuchen" pe="2" amount="70" measurement="g" />
+		<food name="Sandkuchen" pe="2" amount="70" measurement="g" />
+		<food name="Marmorkuchen" pe="2" amount="70" measurement="g" />
+		<food name="Käsekuchen" pe="2" amount="120" measurement="g" />
+		<food name="Mohnrolle aus Hefeteig" pe="2" amount="70" measurement="g" />
+		<food name="Nußhörnchen aus Hefeteig" pe="2" amount="60" measurement="g" />
+		<food name="Nußecken aus Mürbeteig" pe="2" amount="50" measurement="g" />
+		
+		<food name="Zucker" pe="0" amount="1" measurement="Esslöffel" />
+		<food name="Marmelade" pe="0" amount="1" measurement="Portion" />
+		<food name="Honig" pe="0" amount="1" measurement="Portion" />
+		<food name="Nussnougatcreme" pe="1" amount="1" measurement="Portion" />
+		<food name="Gummibärchen" pe="0" amount="1" measurement="Handvoll" />
+		<food name="Kaugummi" pe="0" amount="5" measurement="Stück" />
+		<food name="Karamelbonbons" pe="0" amount="5" measurement="Stück" />
+		<food name="Marzipan" pe="1" amount="50" measurement="g" />
+		<food name="Schokolade, weiß" pe="1" amount="50" measurement="g" />
+		<food name="Schokolade, Volmilch, Zartbitter" pe="2" amount="50" measurement="g" />
+		<food name="Schokolade, Vollmilch mit 20% Haselnüssen" pe="2" amount="50" measurement="g" />
+		<food name="Schokoküsse" pe="1" amount="4" measurement="Stück" />
+		<food name="Schokoriegel" pe="2" amount="60" measurement="g" />
+		<food name="Fruchteis" pe="0" amount="2" measurement="Kugeln" />
+		<food name="Eiscreme" pe="1" amount="2" measurement="Kugeln" />
+		<food name="Eiskonfekt" pe="2" amount="100" measurement="g" />
 	</category>
 	
+	<category name="milk">
 	<category name="milk">
 		<food name="Frischkäse" pe="1" amount="50" measurement="g" />
 		<food name="Weichkäse" pe="2" amount="50" measurement="g" />
@@ -206,18 +256,78 @@ food:
 		<food name="Butter" pe="0" amount="0" measurement="g" />
 	</category>
 	
+	<category name="drinks">
+	    <food name="Wasser" pe="0" amount="125" measurement="ml" />
+	    <food name="Bohnenkaffee" pe="0" amount="125" measurement="ml" />
+	    <food name="Espresso" pe="0" amount="125" measurement="ml" />
+	    <food name="Cappucino aus instant" pe="1" amount="125" measurement="ml" />
+	    <food name="Schwarztee" pe="0" amount="125" measurement="ml" />
+	    <food name="Kräutertee" pe="0" amount="125" measurement="ml" />
+	    <food name="Colagetränke" pe="1" amount="200" measurement="ml" />
+	    <food name="Spezi" pe="1" amount="200" measurement="ml" />
+	    <food name="Colamix" pe="1" amount="200" measurement="ml" />
+	    <food name="Limonade" pe="0" amount="200" measurement="ml" />
+	    <food name="Nährbier" pe="0" amount="200" measurement="ml" />
+	    <food name="Malzbier" pe="0" amount="200" measurement="ml" />
+	    <food name="Orangensaft" pe="0" amount="200" measurement="ml" />
+	    <food name="Apfelsinensaft" pe="0" amount="200" measurement="ml" />
+	    <food name="Holundersaft, schwarz" pe="1" amount="200" measurement="ml" />
+	    
+	    <food name="Bier, alle Sorten" pe="1" amount="300" measurement="ml" />
+	    <food name="Sekt" pe="0" amount="100" measurement="ml" />
+	    <food name="Wein, weiß und rot" pe="0" amount="150" measurement="ml" />
+	    <food name="Weinbrand" pe="0" amount="20" measurement="ml" />
+	    
+	    <food name="" pe="" amount="" measurement="ml" />
+	</category>
+	
 	<category name="other">
-		<food name="Bratensoße" />
+		<food name="Bratensoße, hell oder dunkel" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Sauce hollandaise" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Remouladensoße" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Frankfurter Grüne Soße" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Salatmarinade" pe="1" amount="3" measurement="Esslöffel" />
+		<food name="Vinaigrette aus Essig und Öl" pe="1" amount="3" measurement="Esslöffel" />
+		
+		<food name="Bäckerhefe" pe="3" amount="42" measurement="g" />
+		<food name="Trockenhefe" pe="1" amount="1" measurement="Päckchen" />
+		<food name="Backpulver" pe="15" amount="1" measurement="Packung" />
+		<food name="Weinstein-Backpulver" pe="0" amount="1" measurement="Packung" />
+		<food name="Natron" pe="0" amount="1" measurement="Päckchen" />
+		<food name="Kakaopulver" pe="1" amount="1" measurement="Esslöffel" />
+		<food name="Kakaogetränkepulver, löslich gezuckert" pe="1" amount="2" measurement="Esslöffel" />
+		<food name="Mayonnaise" pe="0" amount="1" measurement="Esslöffel" />
+		<food name="Senf" pe="0" amount="1" measurement="Esslöffel" />
+		<food name="Tomatenketchup" pe="0" amount="1" measurement="Esslöffel" />
+		<food name="Tomatenmark" pe="0" amount="1" measurement="Esslöffel" />
+		
 		<food name="Hühnerei" pe="2" amount="1" measurement="Ei" />
 		<food name="Eigelb" pe="2" amount="1" measurement="Ei" />
 		<food name="Eiweiß" pe="0" amount="1" measurement="Ei" />
-		<food name="Senf" pe="0" amount="1" measurement="Esslöffel" />
-		<food name="Backpulver" pe="15" amount="1" measurement="Packung" />
 		<food name="Tofu" pe="1" amount="100" measurement="g" />
 		<food name="Nudeln" pe="1" amount="150" measurement="g" />
 		<food name="Hartweizengrieß" pe="1" amount="150" measurement="g" />
 		<food name="Eierteigwaren" pe="1" amount="150" measurement="g" />
 		<food name="Volkornteigwaren" pe="2" amount="150" measurement="g" />
+		
+		<food name="Grieß" pe="1" amount="100" measurement="g" />
+		<food name="Grünkern" pe="4" amount="100" measurement="g" />
+		<food name="Hirse" pe="3" amount="100" measurement="g" />
+		<food name="buchweizen" pe="3" amount="100" measurement="g" />
+		<food name="Perlgraupen" pe="2" amount="100" measurement="g" />
+		<food name="Sago" pe="1" amount="100" measurement="g" />
+		<food name="Vollkornmehl Type 1800" pe="3" amount="100" measurement="g" />
+		<food name="Weizenmehl Type 405" pe="1" amount="100" measurement="g" />
+		<food name="Stärke" pe="0" amount="1" measurement="Esslöffel" />
+		<food name="Soßenbinder" pe="2" amount="1" measurement="Esslöffel" />
+		<food name="Müsli (ohne Nüsse)" pe="2" amount="5" measurement="Esslöffel" />
+		<food name="Haferflocken" pe="2" amount="5" measurement="Esslöffel" />
+		<food name="Cornflakes" pe="0" amount="5" measurement="Esslöffel" />
+		<food name="Popcorn" pe="0" amount="1" measurement="Handvoll" />
+		<food name="Puffreis mit Zucker/Honig geröstet" pe="0" amount="1" measurement="Handvoll" />
+		<food name="Wizenkleie" pe="1" amount="1" measurement="Esslöffel" />
+		<food name="Roggen" pe="1" amount="1" measurement="Esslöffel" />
+		<food name="Weizenkeime" pe="1" amount="1" measurement="Esslöffel" />
 	</category>
 </foodUnits>
  
