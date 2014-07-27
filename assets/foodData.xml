@@ -204,7 +204,6 @@ food:
 	</category>
 	
 	<category name="milk">
-	<category name="milk">
 		<food name="Frischkäse" pe="1" amount="50" measurement="g" />
 		<food name="Weichkäse" pe="2" amount="50" measurement="g" />
 		<food name="Gouda" pe="3" amount="50" measurement="g" />

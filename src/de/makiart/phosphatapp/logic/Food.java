@@ -33,10 +33,7 @@ public class Food implements Comparable<Food> {
 	}
 	
 	public Food() {
-		
 	}
-
-	
 	
 	@Override
 	public String toString() {

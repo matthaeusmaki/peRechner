@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import de.makiart.phosphatapp.R;
@@ -20,19 +21,23 @@ import de.makiart.phosphatapp.logic.Food;
 
 public class SelectFoodFragment extends Fragment implements OnItemClickListener {
 
+	private View parentView;
+
 	private List<Food> foodList;
+	
 	private Food selectedFood;
+	private int selectedAmount;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		View view = inflater.inflate(R.layout.fragment_select_food, container, false);
+		parentView = inflater.inflate(R.layout.fragment_select_food, container, false);
 		
-		ListAdapter adapter = new ArrayAdapter<Food>(view.getContext(), android.R.layout.simple_list_item_1, foodList);
-		ListView listView = (ListView) view.findViewById(R.id.categoryMealListId);
+		ListAdapter adapter = new ArrayAdapter<Food>(parentView.getContext(), android.R.layout.simple_list_item_1, foodList);
+		ListView listView = (ListView) parentView.findViewById(R.id.categoryMealListId);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(this);
 		
-		return view;
+		return parentView;
 	}
 	
 	@Override
@@ -40,20 +45,20 @@ public class SelectFoodFragment extends Fragment implements OnItemClickListener 
 		selectedFood = foodList.get(row);
 		Log.i("SelectFoodFragment test", "Auswahl von : " + selectedFood.getName());
 		
-		// TODO: save soll erst beim clicken des Speichern Buttons aufgerufen werden
-		save();
+		LinearLayout amountView = (LinearLayout) this.parentView.findViewById(R.id.amountId);
+		amountView.setVisibility(View.VISIBLE);
 	}
+
+//	public void save(View view) {
+//		Intent intent = new Intent();
+//		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
+//		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
+//		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
+//		getActivity().setResult(Activity.RESULT_OK, intent);
+//		getActivity().finish();
+//	}
 	
 	public void setFoodList(List<Food> foodList) {
 		this.foodList = foodList;
-	}
-
-	private void save() {
-		Intent intent = new Intent();
-		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
-		getActivity().setResult(Activity.RESULT_OK, intent);
-		getActivity().finish();
 	}
 }

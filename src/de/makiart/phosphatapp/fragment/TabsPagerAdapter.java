@@ -1,9 +1,9 @@
 package de.makiart.phosphatapp.fragment;
 
-import de.makiart.phosphatapp.data.FoodData;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import de.makiart.phosphatapp.data.FoodData;
 
 public class TabsPagerAdapter extends FragmentPagerAdapter  {
 
