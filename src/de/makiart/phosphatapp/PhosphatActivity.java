@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import de.makiart.phosphatapp.logic.Food;
+import de.makiart.phosphatapp.logic.PECalculationAlgorithm;
 
 /**
  * Ansicht für Hinzufügen einer Speise und Anzeigen ob bereits etwas hinzugefügt wurde.
@@ -55,9 +56,10 @@ public class PhosphatActivity extends Activity {
 				food.setName(in.getStringExtra(Food.FOOD_ATTRIBUTE_NAME));
 				food.setPeValue(in.getShortExtra(Food.FOOD_ATTRIBUTE_PEVALUE, (short) 0));
 				food.setAmount(in.getShortExtra(Food.FOOD_ATTRIBUTE_AMOUNT, (short) 0));
+				food.setTimes(in.getIntExtra(Food.FOOD_ATTRIBUTE_AMOUNT_TIMES, 1));
 				foodList.add(food);
 				foodViewList.addView(createMealListItem(food));
-				calculatePe();
+				this.phosphatCount = PECalculationAlgorithm.calculatePe(foodList);
 				this.writePE();
 			}
 		}
@@ -93,7 +95,7 @@ public class PhosphatActivity extends Activity {
 				break;
 			}
 		}
-		calculatePe();
+		this.phosphatCount = PECalculationAlgorithm.calculatePe(foodList);
 		foodViewList.removeView((View) view.getParent());
 		this.writePE();
 	}
@@ -119,25 +121,5 @@ public class PhosphatActivity extends Activity {
 		mealListItem.addView(peTxt);
 		mealListItem.setId(addedFood.getId());
 		return mealListItem;
-	}
-	
-	/**
-	 * Berechnen der Phosphateinheiten.
-	 * Drei 0 PE Werte ergeben 1 PE.
-	 */
-	private void calculatePe() {
-		phosphatCount = 0;
-		int peZeroCount = 0;
-		for (Food f : foodList) {
-			int value = f.getPeValue();
-			phosphatCount += value;
-			if (value == 0) {
-				peZeroCount++;
-				if (peZeroCount >= 3) {
-					phosphatCount++;
-					peZeroCount = 0;
-				}
-			}
-		}
 	}
 }

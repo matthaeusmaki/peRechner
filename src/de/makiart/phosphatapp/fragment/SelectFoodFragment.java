@@ -40,16 +40,6 @@ public class SelectFoodFragment extends Fragment implements OnItemClickListener 
 		((SelectFoodActivity) getActivity()).selectFood(foodList.get(row));
 	}
 
-	// TODO: das soll in der SelectFoodActivity passieren
-//	public void save(View view) {
-//		Intent intent = new Intent();
-//		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
-//		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
-//		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
-//		getActivity().setResult(Activity.RESULT_OK, intent);
-//		getActivity().finish();
-//	}
-	
 	public void setFoodList(List<Food> foodList) {
 		this.foodList = foodList;
 	}

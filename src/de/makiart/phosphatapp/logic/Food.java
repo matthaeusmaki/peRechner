@@ -11,10 +11,13 @@ public class Food implements Comparable<Food> {
 	
 	private Category category;
 	
+	private int times = 1;
+	
 	public static final String FOOD_ATTRIBUTE_ID = "id";
 	public static final String FOOD_ATTRIBUTE_NAME = "name";
 	public static final String FOOD_ATTRIBUTE_PEVALUE = "peValue";
 	public static final String FOOD_ATTRIBUTE_AMOUNT = "amount";
+	public static final String FOOD_ATTRIBUTE_AMOUNT_TIMES = "times";
 	public static final String FOOD_ATTRIBUTE_MEASUREMENT = "measurement";
 	
 	/**
@@ -164,5 +167,18 @@ public class Food implements Comparable<Food> {
 			return -1;
 		}
 		return this.getName().compareTo(another.getName());
+	}
+
+	public int getTimes() {
+		return times;
+	}
+
+	/**
+	 * Setzt wie oft die Standard-Menge multipliziert wird.<br />
+	 * Mindestens jedoch 1.
+	 * @param times
+	 */
+	public void setTimes(int times) {
+		this.times = Math.max(1, times);
 	}
 }

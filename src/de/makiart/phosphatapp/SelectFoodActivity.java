@@ -2,18 +2,22 @@ package de.makiart.phosphatapp;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
+import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.SeekBar;
+import android.widget.SeekBar.OnSeekBarChangeListener;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 import de.makiart.phosphatapp.logic.Food;
 
-public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener {
+public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener, OnSeekBarChangeListener {
 
 	private ViewPager viewPager;
 	private TabsPagerAdapter pagerAdapter;
@@ -55,6 +59,9 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 			public void onPageScrollStateChanged(int position) {
 			}
 		});
+		
+		// Activity als Lister für die SeekBar setzen
+		((SeekBar) findViewById(R.id.seekBarAmountId)).setOnSeekBarChangeListener(this);
 	}
 
 	@Override
@@ -70,6 +77,10 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 
+	/**
+	 * Methoden für das Overlay zum Einstellen der Menge
+	 */
+	
 	@Override
 	public void onBackPressed() {
 		if (selectedFood != null) {
@@ -80,25 +91,43 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	}
 	
 	public void selectFood(Food selected) {
-		Log.i("SelectedFoodAcitivity", "Selected Food: " + selected.getName());
-		
 		this.selectedFood = selected;
-		
 		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
 		amountView.setVisibility(View.VISIBLE);
 	}
 	
-	public void save() {
+	public void save(View view) {
 		Log.i("Fragment", "Save");
-		// TODO: Feld zum Einstellen der Menge einblenden
+		Intent intent = new Intent();
+		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT_TIMES, selectedFood.getTimes());
+		this.setResult(Activity.RESULT_OK, intent);
+		this.finish();
 	}
 	
 	public void cancel() {
-		Log.i("Fragment", "Cancel");
-		
 		this.selectedFood = null;
-		
 		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
 		amountView.setVisibility(View.INVISIBLE);
+	}
+
+	/**
+	 * SeekBar Methoden
+	 */
+	
+	@Override
+	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+		Log.i("SelectFoodActivity.onProgressChanged", "progress " + progress);
+		this.selectedFood.setTimes(progress);
+	}
+
+	@Override
+	public void onStartTrackingTouch(SeekBar seekBar) {
+	}
+
+	@Override
+	public void onStopTrackingTouch(SeekBar seekBar) {
 	}
 }
