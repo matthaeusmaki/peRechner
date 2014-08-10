@@ -8,14 +8,18 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
+import de.makiart.phosphatapp.logic.Food;
 
 public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener {
 
 	private ViewPager viewPager;
 	private TabsPagerAdapter pagerAdapter;
 	private ActionBar actionBar;
+	
+	private Food selectedFood;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,11 +70,35 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	public void onTabUnselected(Tab tab, FragmentTransaction ft) {
 	}
 
-	public void save(View view) {
-		Log.i("Fragment", "Save");
+	@Override
+	public void onBackPressed() {
+		if (selectedFood != null) {
+			cancel();
+		} else {
+			super.onBackPressed();
+		}
 	}
 	
-	public void cancel(View view) {
+	public void selectFood(Food selected) {
+		Log.i("SelectedFoodAcitivity", "Selected Food: " + selected.getName());
+		
+		this.selectedFood = selected;
+		
+		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
+		amountView.setVisibility(View.VISIBLE);
+	}
+	
+	public void save() {
+		Log.i("Fragment", "Save");
+		// TODO: Feld zum Einstellen der Menge einblenden
+	}
+	
+	public void cancel() {
 		Log.i("Fragment", "Cancel");
+		
+		this.selectedFood = null;
+		
+		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
+		amountView.setVisibility(View.INVISIBLE);
 	}
 }
