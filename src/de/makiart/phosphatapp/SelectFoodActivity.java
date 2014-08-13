@@ -13,8 +13,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.TextView;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
+import de.makiart.phosphatapp.logic.CalcAlgorithm;
 import de.makiart.phosphatapp.logic.Food;
 
 public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener, OnSeekBarChangeListener {
@@ -94,14 +96,42 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 		this.selectedFood = selected;
 		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
 		amountView.setVisibility(View.VISIBLE);
+		
+		SeekBar seekBar = (SeekBar) findViewById(R.id.seekBarAmountId);
+		seekBar.setProgress(1);
+		
+		setDisplayName(selected.getName());
+		setDisplayAmount(selected.getAmount());
+		setDisplayMeasurment(selected.getMeasurement());
+		setDisplayPE(selected.getPeValue());
+	}
+	
+	private void setDisplayName(String name) {
+		TextView displayTxt = (TextView) findViewById(R.id.selectedNameId);
+		displayTxt.setText(name);
+	}
+	
+	private void setDisplayAmount(int amount) {
+		TextView displayTxt = (TextView) findViewById(R.id.selectedAmountId);
+		displayTxt.setText(String.valueOf(amount));
+	}
+	
+	private void setDisplayMeasurment(String measurement) {
+		TextView displayTxt = (TextView) findViewById(R.id.selectedMeasurementId);
+		displayTxt.setText(String.valueOf(measurement));
+	}
+	
+	private void setDisplayPE(int pe) {
+		TextView displayTxt = (TextView) findViewById(R.id.selectedPEId);
+		displayTxt.setText(String.valueOf(pe));
 	}
 	
 	public void save(View view) {
-		Log.i("Fragment", "Save");
 		Intent intent = new Intent();
 		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
 		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
 		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
+		intent.putExtra(Food.FOOD_ATTRIBUTE_MEASUREMENT, selectedFood.getMeasurement());
 		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT_TIMES, selectedFood.getTimes());
 		this.setResult(Activity.RESULT_OK, intent);
 		this.finish();
@@ -119,8 +149,9 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	
 	@Override
 	public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-		Log.i("SelectFoodActivity.onProgressChanged", "progress " + progress);
 		this.selectedFood.setTimes(progress);
+		setDisplayAmount(progress * this.selectedFood.getAmount());
+		setDisplayPE(CalcAlgorithm.calculatePe(selectedFood));
 	}
 
 	@Override

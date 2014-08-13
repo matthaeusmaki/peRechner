@@ -109,13 +109,14 @@ public class FoodData {
 	}
 	
 	private void readFood(XmlPullParser parser, Category category) {
+		String foodName = "";
 		try {
 			Food food = new Food();
 			food.setId(-1);
 			
-			String name = parser.getAttributeValue(0);
+			foodName = parser.getAttributeValue(0);
 			
-			food.setName(name);
+			food.setName(foodName);
 			food.setPeValue(Short.valueOf(parser.getAttributeValue(1)));
 			food.setAmount(Short.valueOf(parser.getAttributeValue(2)));
 			food.setMeasurement(parser.getAttributeValue(3));
@@ -123,7 +124,7 @@ public class FoodData {
 			
 			selectableFood.add(food);
 		} catch (Exception e) {
-			Log.w("readFood", "Fehler beim Auslesen des Essens!");
+			Log.w("readFood", "Fehler beim Auslesen des Essens in Kategorie " + category.getDisplayName() + "und dem Essen " + foodName);
 		}
 	}
 	

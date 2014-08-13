@@ -18,7 +18,7 @@ food:
  -->
 <foodUnits>
 	<category name="meats">
-		<food name="Wiener Würstchen" />
+		<food name="Wiener Würstchen" pe="3" amount="1" measurement="Paar" />
 		<food name="Speck" pe="0" amount="50" measurement="g" />
 		<food name="Corned Beef" pe="1" amount="50" measurement="g" />
 		<food name="Bierschinken" pe="1" amount="1" measurement="g" />
@@ -234,7 +234,7 @@ food:
 		<food name="Tilsiter" pe="3" amount="50" measurement="g" />
 		<food name="Parmesan" pe="1" amount="10" measurement="g" />
 		<food name="Scheiblette" pe="3" amount="1" measurement="Scheibe" />
-		<food name="Schmelzkäse" pe="6" amount="62,5" measurement="g" />
+		<food name="Schmelzkäse" pe="6" amount="63" measurement="g" />
 		<food name="Molke" pe="1" amount="200" measurement="ml" />
 		<food name="Sojamilch" pe="1" amount="200" measurement="ml" />
 		<food name="Kaba" pe="3" amount="200" measurement="ml" />
@@ -276,8 +276,6 @@ food:
 	    <food name="Sekt" pe="0" amount="100" measurement="ml" />
 	    <food name="Wein, weiß und rot" pe="0" amount="150" measurement="ml" />
 	    <food name="Weinbrand" pe="0" amount="20" measurement="ml" />
-	    
-	    <food name="" pe="" amount="" measurement="ml" />
 	</category>
 	
 	<category name="other">

@@ -14,7 +14,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import de.makiart.phosphatapp.logic.Food;
-import de.makiart.phosphatapp.logic.PECalculationAlgorithm;
+import de.makiart.phosphatapp.logic.CalcAlgorithm;
 
 /**
  * Ansicht für Hinzufügen einer Speise und Anzeigen ob bereits etwas hinzugefügt wurde.
@@ -56,10 +56,11 @@ public class PhosphatActivity extends Activity {
 				food.setName(in.getStringExtra(Food.FOOD_ATTRIBUTE_NAME));
 				food.setPeValue(in.getShortExtra(Food.FOOD_ATTRIBUTE_PEVALUE, (short) 0));
 				food.setAmount(in.getShortExtra(Food.FOOD_ATTRIBUTE_AMOUNT, (short) 0));
+				food.setMeasurement(in.getStringExtra(Food.FOOD_ATTRIBUTE_MEASUREMENT));
 				food.setTimes(in.getIntExtra(Food.FOOD_ATTRIBUTE_AMOUNT_TIMES, 1));
 				foodList.add(food);
 				foodViewList.addView(createMealListItem(food));
-				this.phosphatCount = PECalculationAlgorithm.calculatePe(foodList);
+				this.phosphatCount = CalcAlgorithm.calculatePe(foodList);
 				this.writePE();
 			}
 		}
@@ -95,17 +96,20 @@ public class PhosphatActivity extends Activity {
 				break;
 			}
 		}
-		this.phosphatCount = PECalculationAlgorithm.calculatePe(foodList);
+		this.phosphatCount = CalcAlgorithm.calculatePe(foodList);
 		foodViewList.removeView((View) view.getParent());
 		this.writePE();
 	}
 	
 	private LinearLayout createMealListItem(Food addedFood) {
-		TextView peTxt = new TextView(this);
-		peTxt.setText(String.valueOf(addedFood.getPeValue()) + " ");
-		
 		TextView nameTxt = new TextView(this);
 		nameTxt.setText(addedFood.getName() + " ");
+		
+		TextView peTxt = new TextView(this);
+		peTxt.setText(String.valueOf(CalcAlgorithm.calculatePe(addedFood)) + " PE");
+
+		TextView amountTxt = new TextView(this);
+		amountTxt.setText(String.valueOf(addedFood.getAmount() * addedFood.getTimes()) + " " + addedFood.getMeasurement() + " ");
 		
 		Button removeButton = new Button(this);
 		removeButton.setText(R.string.buttonRemoveMeal);
@@ -118,6 +122,7 @@ public class PhosphatActivity extends Activity {
 		LinearLayout mealListItem = new LinearLayout(this);
 		mealListItem.addView(removeButton);
 		mealListItem.addView(nameTxt);
+		mealListItem.addView(amountTxt);
 		mealListItem.addView(peTxt);
 		mealListItem.setId(addedFood.getId());
 		return mealListItem;
