@@ -1,4 +1,4 @@
-package de.makiart.phosphatapp.logic;
+package de.makiart.phosphatapp.data;
 
 public class Category {
 

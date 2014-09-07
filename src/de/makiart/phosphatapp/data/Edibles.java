@@ -1,6 +1,7 @@
-package de.makiart.phosphatapp.logic;
+package de.makiart.phosphatapp.data;
 
-public class Food implements Comparable<Food> {
+
+public class Edibles implements Comparable<Edibles> {
 
 	private int id;
 	private short peValue;
@@ -26,7 +27,7 @@ public class Food implements Comparable<Food> {
 	 * @param peValue
 	 * @param amount
 	 */
-	public Food(int id, String name, Category category, short peValue, short amount, String measurement) {
+	public Edibles(int id, String name, Category category, short peValue, short amount, String measurement) {
 		this.id = id;
 		this.name = name;
 		this.peValue = peValue;
@@ -35,7 +36,7 @@ public class Food implements Comparable<Food> {
 		this.measurement = measurement;
 	}
 	
-	public Food() {
+	public Edibles() {
 	}
 	
 	@Override
@@ -156,7 +157,7 @@ public class Food implements Comparable<Food> {
 	}
 
 	@Override
-	public int compareTo(Food another) {
+	public int compareTo(Edibles another) {
 		if (another.getName() == null && this.getName() == null) {
 			return 0;
 		}

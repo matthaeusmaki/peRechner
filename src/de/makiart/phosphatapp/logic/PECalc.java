@@ -11,11 +11,12 @@ import java.util.List;
 
 import android.content.res.AssetManager;
 import android.util.Log;
+import de.makiart.phosphatapp.data.Edibles;
 import de.makiart.phosphatapp.data.FoodData;
 
 public class PECalc {
 
-	private List<Food> meal = new ArrayList<Food>();
+	private List<Edibles> meal = new ArrayList<Edibles>();
 	
 	private int phosphatCount = 0;
 //	private int pillCount;
@@ -26,10 +27,10 @@ public class PECalc {
 //		data = new FoodData(assets);
 	}
 	
-	public Food addFood() {
+	public Edibles addFood() {
 		Log.i("PECalc.addFood()", "add food");
 		
-		Food selected = data.getRandomFood();
+		Edibles selected = data.getRandomFood();
 		meal.add(selected);
 		this.calculatePe();
 		
@@ -39,9 +40,9 @@ public class PECalc {
 	public void removeFood(int id) {
 		Log.i("PECalc.removeFood()", "remove food with id: " + id);
 		
-		List<Food> tmp = new ArrayList<Food>();
+		List<Edibles> tmp = new ArrayList<Edibles>();
 		tmp.addAll(meal);
-		for (Food food : tmp) {
+		for (Edibles food : tmp) {
 			if (food.getId() == id) {
 				meal.remove(food);
 				break;
@@ -57,7 +58,7 @@ public class PECalc {
 	private void calculatePe() {
 		phosphatCount = 0;
 		int peZeroCount = 0;
-		for (Food f : meal) {
+		for (Edibles f : meal) {
 			int value = f.getPeValue();
 			if (peZeroCount >= 3 && value == 0) {
 				phosphatCount += 1;

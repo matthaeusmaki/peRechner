@@ -14,19 +14,19 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import de.makiart.phosphatapp.R;
 import de.makiart.phosphatapp.SelectFoodActivity;
-import de.makiart.phosphatapp.logic.Food;
+import de.makiart.phosphatapp.data.Edibles;
 
 public class SelectFoodFragment extends Fragment implements OnItemClickListener {
 
 	private View parentView;
 
-	private List<Food> foodList;
+	private List<Edibles> foodList;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		parentView = inflater.inflate(R.layout.fragment_select_food, container, false);
 		
-		ListAdapter adapter = new ArrayAdapter<Food>(parentView.getContext(), android.R.layout.simple_list_item_1, foodList);
+		ListAdapter adapter = new ArrayAdapter<Edibles>(parentView.getContext(), android.R.layout.simple_list_item_1, foodList);
 		ListView listView = (ListView) parentView.findViewById(R.id.categoryMealListId);
 		listView.setAdapter(adapter);
 		listView.setOnItemClickListener(this);
@@ -39,7 +39,7 @@ public class SelectFoodFragment extends Fragment implements OnItemClickListener 
 		((SelectFoodActivity) getActivity()).selectFood(foodList.get(row));
 	}
 
-	public void setFoodList(List<Food> foodList) {
+	public void setFoodList(List<Edibles> foodList) {
 		this.foodList = foodList;
 	}
 }

@@ -14,8 +14,6 @@ import android.content.res.Resources;
 import android.util.Log;
 import android.util.Xml;
 import de.makiart.phosphatapp.R;
-import de.makiart.phosphatapp.logic.Category;
-import de.makiart.phosphatapp.logic.Food;
 
 public class FoodData {
 	
@@ -40,7 +38,7 @@ public class FoodData {
 	public static final String CATEGORY_OTHER = "other";
 	
 	private int idCount = 0;
-	private List<Food> selectableFood = new ArrayList<Food>();
+	private List<Edibles> selectableFood = new ArrayList<Edibles>();
 	private List<Category> foodCategories = new ArrayList<Category>();
 	private List<String> foodCategoriesAsStrings = new ArrayList<String>();
 	
@@ -111,7 +109,7 @@ public class FoodData {
 	private void readFood(XmlPullParser parser, Category category) {
 		String foodName = "";
 		try {
-			Food food = new Food();
+			Edibles food = new Edibles();
 			food.setId(-1);
 			
 			foodName = parser.getAttributeValue(0);
@@ -128,8 +126,8 @@ public class FoodData {
 		}
 	}
 	
-	public Food getFoodByName(String name) {
-		for (Food food : selectableFood) {
+	public Edibles getFoodByName(String name) {
+		for (Edibles food : selectableFood) {
 			if (food.getName().equals(name)) {
 				return food;
 			}
@@ -139,19 +137,19 @@ public class FoodData {
 	
 	public List<String> getListOfFoodStrngs() {
 		List<String> ret = new ArrayList<String>();
-		for (Food food : selectableFood) {
+		for (Edibles food : selectableFood) {
 			ret.add(food.getName());
 		}
 		return ret;
 	}
 	
-	public List<Food> getListOfFood() {
+	public List<Edibles> getListOfFood() {
 		return selectableFood;
 	}
 	
-	public List<Food> getFoodOfCategory(String category) {
-		ArrayList<Food> ret = new ArrayList<Food>();
-		for (Food food : selectableFood) {
+	public List<Edibles> getFoodOfCategory(String category) {
+		ArrayList<Edibles> ret = new ArrayList<Edibles>();
+		for (Edibles food : selectableFood) {
 			if (food.getCategory().getDisplayName().equals(category)) {
 				ret.add(food);
 			}
@@ -168,10 +166,10 @@ public class FoodData {
 		return foodCategories;
 	}
 	
-	public Food getRandomFood() {
-		Food prototype = selectableFood.get((int) (Math.random() * selectableFood.size()));
+	public Edibles getRandomFood() {
+		Edibles prototype = selectableFood.get((int) (Math.random() * selectableFood.size()));
 		Log.i("FoodData.getRandromFood()", prototype.getName());
-		return new Food(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount(), prototype.getMeasurement());
+		return new Edibles(idCount++, prototype.getName(), prototype.getCategory(), prototype.getPeValue(), prototype.getAmount(), prototype.getMeasurement());
 	}
 	
 	private String translateCategoryName(String name) {

@@ -14,10 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import de.makiart.phosphatapp.data.Edibles;
 import de.makiart.phosphatapp.data.FoodData;
 import de.makiart.phosphatapp.fragment.TabsPagerAdapter;
 import de.makiart.phosphatapp.logic.CalcAlgorithm;
-import de.makiart.phosphatapp.logic.Food;
 
 public class SelectFoodActivity extends FragmentActivity implements ActionBar.TabListener, OnSeekBarChangeListener {
 
@@ -25,7 +25,7 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	private TabsPagerAdapter pagerAdapter;
 	private ActionBar actionBar;
 	
-	private Food selectedFood;
+	private Edibles selectedFood;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +92,7 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 		}
 	}
 	
-	public void selectFood(Food selected) {
+	public void selectFood(Edibles selected) {
 		this.selectedFood = selected;
 		LinearLayout amountView = (LinearLayout) findViewById(R.id.amountId);
 		amountView.setVisibility(View.VISIBLE);
@@ -128,11 +128,11 @@ public class SelectFoodActivity extends FragmentActivity implements ActionBar.Ta
 	
 	public void save(View view) {
 		Intent intent = new Intent();
-		intent.putExtra(Food.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_MEASUREMENT, selectedFood.getMeasurement());
-		intent.putExtra(Food.FOOD_ATTRIBUTE_AMOUNT_TIMES, selectedFood.getTimes());
+		intent.putExtra(Edibles.FOOD_ATTRIBUTE_NAME, selectedFood.getName());
+		intent.putExtra(Edibles.FOOD_ATTRIBUTE_PEVALUE, selectedFood.getPeValue());
+		intent.putExtra(Edibles.FOOD_ATTRIBUTE_AMOUNT, selectedFood.getAmount());
+		intent.putExtra(Edibles.FOOD_ATTRIBUTE_MEASUREMENT, selectedFood.getMeasurement());
+		intent.putExtra(Edibles.FOOD_ATTRIBUTE_AMOUNT_TIMES, selectedFood.getTimes());
 		this.setResult(Activity.RESULT_OK, intent);
 		this.finish();
 	}
