@@ -11,8 +11,6 @@
     <string name="buttonCancel">Abbrechen</string>
     <string name="buttonSave">Spe</string>
     
-    <string name="peResult">PE:</string>
-    
     <string name="title_activity_choose_meal">Essen auswählen</string>
 
     <string name="milk">Milchprodukte</string>
@@ -23,5 +21,7 @@
     <string name="other">Sonstiges</string>
     
     <string name="food_spinner_prompt">Essen auswählen</string>
+    
+    <string name="pe_short">PE</string>
     
 </resources>

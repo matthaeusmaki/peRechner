@@ -67,7 +67,7 @@ public class PhosphatActivity extends Activity {
 	}
 	
 	private void writePE() {
-		((TextView) findViewById(R.id.peTextId)).setText("PE: " + String.valueOf(phosphatCount));
+		((TextView) findViewById(R.id.peTextId)).setText(String.valueOf(phosphatCount));
 	}
 
 	/**

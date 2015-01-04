@@ -30,15 +30,31 @@
 	    </LinearLayout>
     </ScrollView>
 
-	<TextView
-	    android:id="@+id/peTextId"
-	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
+	<LinearLayout
 	    android:layout_alignParentBottom="true"
-	    android:layout_alignParentLeft="true"
-	    android:background="#dddddd"
-	    android:height="50dp"
-	    android:text="@string/peResult"
-	    android:textAppearance="?android:attr/textAppearanceLarge" />
+		android:layout_alignParentLeft="true"
+   		android:layout_width="match_parent"
+        android:layout_height="50dp"
+		android:background="#127633"
+        android:orientation="horizontal">
+	    
+	    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/pe_short"
+            android:textColor="#ffffff" />
+	    
+		<TextView
+		    android:id="@+id/peTextId"
+		    android:layout_marginLeft="20dp"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:height="50dp"
+		    android:textColor="#ffffff"
+		    android:textSize="10pt"
+		    android:textAppearance="?android:attr/textAppearanceLarge" />
+	</LinearLayout>	    
 
 </RelativeLayout>

@@ -14,10 +14,10 @@
     <LinearLayout
         android:id="@+id/amountId"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:background="#004d00"
+        android:background="#127633"
         android:gravity="right"
         android:orientation="horizontal"
         android:padding="6dp"
@@ -30,51 +30,55 @@
             android:layout_weight="1.81"
             android:orientation="vertical" >
 
+            <!-- Name -->
             <TextView
                 android:id="@+id/selectedNameId"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="8dp"
                 android:paddingTop="4dp"
-                android:text="Name"
-                android:textColor="#000000" />
+                android:textColor="#ffffff"
+                android:textSize="10pt" />
             
             <LinearLayout
         		android:layout_width="match_parent"
 	            android:layout_height="25dp"
 	            android:orientation="horizontal">
 	            
+                <!-- Menge -->
 	            <TextView
 	                android:id="@+id/selectedAmountId"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:paddingLeft="8dp"
 	                android:paddingTop="4dp"
-	                android:textColor="#000000" />
+	                android:textColor="#ffffff" />
 
+	            <!-- Maßeinheit -->
             	<TextView
 	                android:id="@+id/selectedMeasurementId"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:paddingLeft="8dp"
 	                android:paddingTop="4dp"
-	                android:textColor="#000000" />
+	                android:textColor="#ffffff" />
 	
+            	<!-- PE Wert -->
 	            <TextView
 	                android:id="@+id/selectedPEId"
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:paddingLeft="8dp"
 	                android:paddingTop="4dp"
-	                android:textColor="#000000" />
+	                android:textColor="#ffffff" />
 
 	            <TextView
 	                android:layout_width="wrap_content"
 	                android:layout_height="wrap_content"
 	                android:paddingLeft="8dp"
 	                android:paddingTop="4dp"
-	                android:text="PE"
-	                android:textColor="#000000" />
+	                android:text="@string/pe_short"
+	                android:textColor="#ffffff" />
             
             </LinearLayout>
 
